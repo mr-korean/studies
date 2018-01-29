@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>사원의 이름 / 입사날짜 (년도월)을 검색하세요.</h1>
+    <h2>전체 기간 동안 입사한 직원 검색</h2>
+    <p>사원 목록: jar, hrk, jjk, jsh, kks</p>
+    <p id="who"></p>
+    <form action="#" id="form">
+        <input type="text" name="year" placeholder="입사년도">
+        <input type="submit" value="검색" id="sub">
+    </form>
+    <br>
+    <a href="http://192.168.0.121/~c19kyr/JS/1017">2016년 부터 입사한 직원 검색하기</a>
+    <script>
+        //사원의 이름이나 입사날짜를 검색할 경우 값이 나온다. 
+        var members = {jar: "201702", hrk: "201708", jjk: "201406", jsh: "201605", kks: "201404" }
+        var name = "";
+
+        document.getElementById('sub').onclick = function() {
+            for(var p in members) {
+            members[p] = Number(members[p])
+
+            if(members[p] >= document.getElementById('form').year.value || p == document.getElementById('form').year.value ) {
+                name += p + " " + members[p] + "<br>";
+            }
+        }
+        
+        document.getElementById("who").innerHTML = name;
+        return false;
+        }
+        
+    </script>
+</body>
+</html>

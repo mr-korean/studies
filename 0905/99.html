@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ol {
+            counter-reset: number;
+            list-style-type: none;
+        }
+
+        li::before {
+            counter-increment: number;
+            content: counters(number, " x ") " = "
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>1단은 건너뜀</li>
+        <li>2단 외우기
+            <ol>
+                <li>2</li>
+                <li>4</li>
+                <li>6</li>
+                <li>8</li>
+                <li>10</li>
+                <li>12</li>
+                <li>14</li>
+                <li>16</li>
+                <li>18
+                    <ol>
+                        <li>구구구단? <del>(비둘기?)</del></li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>3단 외우기</li>
+        <ol>
+            <li>3</li>
+            <li>6</li>
+            <li>9</li>
+            <li>12</li>
+            <li>15</li>
+            <li>18</li>
+            <li>21</li>
+            <li>24</li>
+            <li>27</li>
+        </ol>
+    </ol>
+</body>
+
+</html>

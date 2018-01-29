@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>유효성 검사 속성</title>
+</head>
+<body>
+    <input id="id1" type="number" min="50" max="100">
+    <button onclick="myFunction()">OK</button>
+    <p id="demo"></p>
+
+    <script>
+        function myFunction()
+        {
+            var txt = "";
+            if (document.getElementById('id1').validity.rangeOverflow)
+            // HTML이 아닌 input이기에 validity로 유효성을 검사하는데,
+            // 그 결과가 초과(rangeOverflow)일 경우
+            {
+                txt = "값이 너무 큽니다.";
+            }
+            else if (document.getElementById('id1').validity.rangeUnderflow)
+            // 반대로 결과가 미만(rangeUnderflow)일 경우
+            {
+                txt = "값이 너무 작습니다."
+            }
+            document.getElementById('demo').innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

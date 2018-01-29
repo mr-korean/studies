@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>마지막 접속 일시: <span id="lastlogin"></span></p>
+    <table style="background-color:dimgray;color:white;font-weight:bold;text-align:center;width:400px;height:125px;font-size:1.3em;">
+        <tr>
+            <th colspan="100">Made in China</th>
+        </tr>
+        <tr style="background-color:black;">
+            <td id="clock-year"></td>
+            <td id="clock-month"></td>
+            <td id="clock-date"></td>
+            <td id="clock-day"></td>
+            <td id="clock-ampm"></td>
+            <td><span id="clock-hours"></span>:<span id="clock-minutes"></span>:<span id="clock-seconds"></span></td>
+        </tr>
+        
+    </table>
+    <script>
+        var friday = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+        var logintime = new Date();
+        var year = logintime.getFullYear();
+        var month = logintime.getMonth() + 1;
+        var date = logintime.getDate();
+        var day = logintime.getDay();
+        var hours = logintime.getHours();
+        var ampm;
+        var minutes = logintime.getMinutes();
+        var seconds = logintime.getSeconds();
+        if (hours > 13)
+            {
+                hours = hours % 12;
+                ampm = "PM";
+            }
+        else
+            {
+                ampm = "AM";
+            }
+
+        
+
+        
+
+        var result = year + " / " + month + " / " + date + " (" + friday[day] + ")" + " " + hours + ":" + minutes + ":" + seconds + " " + ampm;
+        document.getElementById('lastlogin').innerHTML = result;        
+        document.getElementById('clock-year').innerHTML = year;
+        document.getElementById('clock-month').innerHTML = month;
+        document.getElementById('clock-date').innerHTML = date;
+        document.getElementById('clock-day').innerHTML = friday[day];
+        document.getElementById('clock-ampm').innerHTML = ampm;
+        document.getElementById('clock-hours').innerHTML = hours;
+        document.getElementById('clock-minutes').innerHTML = minutes;
+        document.getElementById('clock-seconds').innerHTML = seconds;
+    </script>
+</body>
+</html>

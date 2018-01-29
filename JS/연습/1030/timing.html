@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>DOOMSDAY CLOCK</p>
+    <p id="timer"></p>
+    <script>
+        function countdown(due) // due에 입력한 숫자를 사용한다. (없으면 함수의 원본으로 이동해서 고쳐야 하므로 불편)
+        {
+            var now = new Date() // 현재 날짜를 now에 대입
+            var rest = due.getTime() - now.getTime() // 목표(due) - 현재(now) = 남은 시간
+
+            var sec = Math.floor(rest / 1000 % 60) // 밀리세컨드로 나누고 60초(아래의 시, 분)가 못되는 초를 계산
+            var min = Math.floor(rest / 1000 / 60) % 60 // 역시 밀리세컨드로 나누고 60분이 못 되는 분을 계산
+            var hours = Math.floor(rest / 1000 / 60 / 60) % 24 // 마찬가지로 24시가 못 되는 시간을 계산
+            var days = Math.floor(rest / 1000 / 60 / 60 / 24) // 같은 날의 23:59:59까지의 차이를 계산하므로 0이 되어야 함
+            var count = [days, hours, min, sec] // 문자열 배열이 아니니까 변수를 그대로 입력
+        
+        return count; // count의 값을 반환하고 함수를 종료(필수)
+        }
+
+        var goal = new Date();
+        goal.setHours(23)
+        goal.setMinutes(59)
+        goal.setSeconds(59) // 오늘 날짜를 23:59:59로 조정
+        console.log(countdown(goal)) // 맨 위의 함수의 due에 goal의 값(오늘의 23:59:59)을 넣어 작동하는지 확인
+
+        function doomsday()
+        {
+            var counter = countdown(goal) // countdown()의 count 배열과 같음(return을 통해 출력)
+            var time = counter[1] + '시간' + counter[2] + '분' + counter[3] + '초'
+            document.getElementById('timer').textContent = time;
+            refresh(); // doomsday 함수가 종료될 때마다 refresh를 통해 스스로를 1회 재시작하므로 무한반복이나 마찬가지
+        }
+
+        function refresh()
+        {
+            setTimeout(doomsday, 1000); // 새로고침 함수 = 1초(1000밀리세컨드) 동안 doomsday를 1회 실시
+        }
+        doomsday(); // script 끝에서 doomsday 실행 & 마무리 -> 끝무렵에 refresh로 1초 동안 1회 실시
+        // -> doomsday 실행 & 마무리 -> 끝무렵에...
+    </script>
+</body>
+</html>

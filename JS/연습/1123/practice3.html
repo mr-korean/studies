@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>토글 기능</title>
+</head>
+<body>
+    <button id="bowwow">개 짖는 소리 안 나게 하라</button>
+    <p>왈왈</p>
+    <p>멍멍</p>
+    <script>
+        window.onload = function() {
+            var well = document.querySelectorAll("p");
+            var barker = document.querySelector("#bowwow");
+            for (const elem of well) {
+                console.log(elem.tagName.toLowerCase());
+                if (elem.tagName.toLowerCase() === "p") {
+                    barker.addEventListener("click", hell);
+                }
+            }
+        }
+
+        function hell() {
+            var well = document.querySelectorAll("p");
+            if (well.style.display === "block")
+            {well.style.display = "none"}
+            else
+            {well.style.display = "block"}
+        }
+
+            // $(document).ready(function(){
+            //     $("button").click(function(){
+            //         $("p").toggle();
+            //     });
+            // });
+</script>
+</body>
+</html>

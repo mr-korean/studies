@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>캔버스 1</title>
+</head>
+<body>
+    <canvas id="painting" width="200" height="200"></canvas>
+    <div>
+        <input type="button" onclick="dologo()" value="마법상자">
+    </div>
+    <input type="range" min="10" max="100" step="10" value="100" onchange="changescale(this.value)">
+    <input type="button" onclick="changescale(this.value)" value="100">
+    <input type="button" onclick="changescale(10)" value="10">
+    <input type="button" onclick="changescale(30)" value="30">
+    <input type="button" onclick="changescale(70)" value="70">
+    <input type="button" onclick="changescale(100)" value="100">
+
+    <div style="width:50px; height:20px; border:1px solid black"><span id="barvalue">100</span></div>
+    <script>
+        var c = document.getElementById("painting");
+        var ctx = c.getContext("2d");
+        var factoryscale = 1; // 기본값
+
+        function init() {
+            ctx = document.getElementById('HTML5').getContext('2d');
+            ctx.font = fontfamily;
+            ctx.save();
+            drawlogo();
+            factoryscale(nextscale);
+        }
+        
+        function changescale(myscale) {
+            document.getElementById("barvalue").innerHTML = myscale;
+            factoryscale = myscale/100; // input의 onchange에서 전해진 값을 여기에 적용하고, 아래의 dologo에 사용한다.
+            dologo(); // 슬라이드바에서 변경된 값에 따라 그림을 그림
+        }
+
+        function dologo() {
+            ctx.restore();
+            ctx.save();
+            ctx.clearRect(0,0,200,200); // 그리기 전에 초기화(기본 설정)
+
+            ctx.scale(factoryscale,factoryscale); // 처음엔 1이지만, 슬라이드바를 움직이면 function changescale를 거쳐 값이 변경됨
+
+            ctx.fillStyle = "skyblue";
+            ctx.beginPath();
+            ctx.moveTo(10, 10);
+            ctx.lineTo(180,10);
+            ctx.lineTo(180,180);
+            ctx.lineTo(10, 180);
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        function init() { // 처음에 현재 상태를 저장하고 새로 그림을 그림(실행 직후)
+            ctx:save();
+            dologo();
+        }
+
+    </script>
+</body>
+</html>

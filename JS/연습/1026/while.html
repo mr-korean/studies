@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        // 사랑의 리퀘스트
+        // var objective = 0;
+        // var count = 1;
+        // while (objective < 101)
+        // {
+        //     var saving = Math.floor(Math.random() * 10 + 1);
+        //     document.getElementById('demo').innerHTML += "모금액 : " + saving + "만원, 총 모금액 : " + objective + "만원, " + count + "회차<br>";
+        //     console.log("모금액 : " + saving + "만원, 총 모금액 : " + objective + "만원, " + count + "회차");
+        //     objective = objective + saving;
+        //     count++;
+        // }
+
+        // ===========================================================================
+
+        // 대성당 짓기
+        // 작업일(* 랜덤) + 휴일(* 랜덤) = 전체 목표
+        var cathedral = 0; // 전체 목표
+        var working; // 작업일
+        var holiday = 1; // 휴일
+        var count = 1; // 걸린 기간
+        while (cathedral < 101)
+        {
+            var random = Math.floor(Math.random() * 7 + 1);
+            if (random <= 5)
+            {
+                working = Math.floor(Math.random() * 20 + 1)
+                cathedral = cathedral + working;
+                document.getElementById('demo').innerHTML += count + "일차 - " + working + "만큼 일하여" + cathedral + "%만큼 완료했습니다.<br>"
+            }
+            else
+            {
+                cathedral = cathedral + holiday;
+                document.getElementById('demo').innerHTML += count + "일차 - 휴일이라서 작업을 쉬었습니다.<br>"
+            }
+            count++;
+        }
+    </script>
+</body>
+</html>

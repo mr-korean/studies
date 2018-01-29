@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://192.168.0.121/statics/sample/html5Logo.html -->
+<html lang="ko">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PNG 포맷 로고 만들기</title>
+  <script>
+    var ctx;
+    var factoryvalue = 1;
+    var fontfamily = "65px 'Gill Sans Ultra Bold',sans-serif";
+
+
+    function init() {
+      ctx = document.getElementById('canvas').getContext('2d');
+      ctx.font = fontfamily;
+      ctx.save();
+      dologo();
+      showscale(factoryvalue);
+    }
+
+    function changescale(val) {
+      factoryvalue = val / 100;
+      dologo();
+      showscale(factoryvalue);
+    }
+
+    function showscale(val) {
+      document.getElementById("rangevalue").innerText = val;
+    }
+
+    function dologo() {
+      var offsety = 80;
+      ctx.restore();
+      ctx.save();
+      ctx.clearRect(0, 0, 600, 400);
+      ctx.scale(factoryvalue, factoryvalue);
+      //ctx.fillText("HTML", 31, 60);
+
+      ctx.translate(35, 0);
+
+      // HTML 텍스트
+      ctx.fillStyle = "#000000";
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, 60);
+      ctx.lineTo(20, 60);
+      ctx.lineTo(20, 40);
+      ctx.lineTo(38, 40);
+      ctx.lineTo(38, 60);
+      ctx.lineTo(58, 60);
+      ctx.lineTo(58, 0);
+      ctx.lineTo(38, 0);
+      ctx.lineTo(38, 20);
+      ctx.lineTo(20, 20);
+      ctx.lineTo(20, 0);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+      ctx.save();
+      ctx.scale(factoryvalue, factoryvalue);
+      ctx.translate(0, offsety);
+
+      ctx.fillStyle = "#E34C26";
+      ctx.beginPath();
+      ctx.moveTo(39, 250);
+      ctx.lineTo(17, 0);
+      ctx.lineTo(262, 0);
+      ctx.lineTo(239, 250);
+      ctx.lineTo(139, 278);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "#F06529";
+      ctx.beginPath();
+      ctx.moveTo(139, 257);
+      ctx.lineTo(220, 234);
+      ctx.lineTo(239, 20);
+      ctx.lineTo(139, 20);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "#EBEBEB";
+      ctx.beginPath();
+      ctx.moveTo(139, 113);
+      ctx.lineTo(98, 113);
+      ctx.lineTo(96, 82);
+      ctx.lineTo(139, 82);
+      ctx.lineTo(139, 51);
+      ctx.lineTo(62, 51);
+      ctx.lineTo(70, 144);
+      ctx.lineTo(139, 144);
+      ctx.closePath();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(139, 193);
+      ctx.lineTo(105, 184);
+      ctx.lineTo(103, 159);
+      ctx.lineTo(72, 159);
+      ctx.lineTo(76, 207);
+      ctx.lineTo(139, 225);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "#FFFFFF";
+      ctx.beginPath();
+      ctx.moveTo(139, 113);
+      ctx.lineTo(139, 144);
+      ctx.lineTo(177, 144);
+      ctx.lineTo(173, 184);
+      ctx.lineTo(139, 193);
+      ctx.lineTo(139, 225);
+      ctx.lineTo(202, 207);
+      ctx.lineTo(210, 113);
+      ctx.closePath();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(139, 51);
+      ctx.lineTo(139, 82);
+      ctx.lineTo(213, 82);
+      ctx.lineTo(216, 51);
+      ctx.closePath();
+      ctx.fill();
+    }
+  </script>
+  <style>
+    footer {
+      display: block;
+      border-top: 1px solid orange;
+      margin: 10px;
+      /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+      font-weight: bold;
+    }
+
+    article {
+      display: block;
+      margin: 5px;
+      /*font-family: Georgia, 'Times New Roman', Times, serif;*/
+    }
+  </style>
+</head>
+
+<body onload="init();">
+  <canvas id="canvas" width="600" height="400">
+    이 브라우저는 canvas 요소를 지원하지 않습니다.
+  </canvas>
+  <article>
+    크기 백분율:
+    <input id="slide" type="range" min="10" max="100" value="100" onchange="changescale(this.value)" step="10"><span id="rangevalue">1</span>
+  </article>
+  <article>
+    <a href="http://people.opera.com/danield/html/html5logo/"></a>
+  </article>
+  <footer>
+  </footer>
+
+
+</body>
+
+</html>

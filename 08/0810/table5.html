@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin:0;
+            padding-left: 0;
+            background-color: gray;
+        }
+        /* list-style-type는 목록의 점표를 없애준다. */
+        /* margin은 ul의 위아래 여백을 뜻한다. */
+        /* padding-left는 ul이 기본적으로 가지고 있는 왼쪽 여백을 뜻한다. */
+
+        li {
+            display: inline-block;
+            border: 1px solid black;
+            width: 100px;
+        }
+        /* display:inline-block은 목록을 한 줄로 보이게 해 준다. */
+        /* width는 각 목록 부분의 간격을 100px로 만들어준다. */
+
+        li a {
+            display: block;
+            padding: 3px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        /* padding은 텍스트 주변의 여백을 뜻한다. 많으면 텍스트가 갈린다. */
+        }
+
+        li a:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+        <ul>
+        <li><a href="../index.html">메인 페이지</a></li>
+        <li><a href="index.html">8월 10일의 인덱스</a></li>
+        <li><a href="table2.html">table2</a></li>
+        <li><a href="table3.html">table3</a></li>
+        <li><a href="table4.html">table4</a></li>
+        <li><a href="table5.html">table5</a></li>
+        <li><a href="table6.html">table6</a></li>
+    </ul>
+    <h3>6대륙</h3>
+    <ul>
+        <li><a href="http://www.google.com/">아시아</li>
+        <li><a href="http://www.google.com/">북아메리카</li>
+        <li><a href="http://www.google.com/">남아메리카</li>
+        <li><a href="http://www.google.com/">유럽</li>
+        <li><a href="http://www.google.com/">아프리카</li>
+        <li><a href="http://www.google.com/">오세아니아</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>여성인력</title>
+    <style>
+    body {margin:0;}
+    table, img, div {box-sizing:border-box;}
+    /* 같은 요소에 적용되는 같은 속성이 있을 경우, 나중에 쓴 것(즉 아래에 있는 것)이 요소와 가장 가까우므로 먼저 적용된다.
+    인라인에 작성한 것이 있다면 CSS보다 '더 가까우므로' 그것이 먼저 적용된다. */
+    /* div div div {뷁}이든 div div {섊}이든 결론적으로는 모두 div이므로 이 경우는 div {속성}만 써주면 된다. */
+
+    .main {background-color:blanchedalmond; margin:auto; width:1280px; height:945px;}
+    .logo {background-color:teal; margin-left:170px; margin-top: 35px; width:90px; height: 47px;}
+    
+    .header1 {background-color: gray; margin-top: 35px; width:850px; height:18px;}
+    .login {background-color: black; width:70px; height:14px; margin:2px 5px 2px 5px;}
+    .loginbar {background-color:black; width:5px; height:14px; margin: 2px 0px 2px 0px;}
+    
+    .header2 {background-color: silver; width:850px; height:29px;}
+    .navbut {background-color:black; width:130px; height:25px; margin:2px 5px 2px 5px;}
+    .navbar {background-color:black; width:5px; height:25px; margin: 2px 0px 2px 0px;}
+
+    .front {background-color:violet; margin-left:170px; width:939px; height:246px;}
+
+    .func {background-color:skyblue; margin-left:170px; top:328px; width:939px; height:203px;}
+    .openad {background-color:orange; margin-left:170px; top:531px; width:939px; height:290px;}
+
+    .left {float:left}
+    .left::after {content:"";display:table;clear:both}
+    .right {float:right}
+    .right::after {content:"";display:table;clear:both}
+    .clear {content:"";display:table;clear:both}
+    </style>
+</head>
+<body>
+<section class="main">
+    <header>
+        <div class="logo left"></div>
+        <div class="header1 left">
+            <div class="login right"></div>
+            <div class="loginbar right"></div>
+            <div class="login right"></div>
+            <div class="loginbar right"></div>
+            <div class="login right"></div>
+            <div class="loginbar right"></div>
+            <div class="login right"></div>
+        </div>
+        <div class="header2 left">
+            <div class="navbut left"></div>
+            <div class="navbar left"></div>
+            <div class="navbut left"></div>
+            <div class="navbar left"></div>
+            <div class="navbut left"></div>
+            <div class="navbar left"></div>
+            <div class="navbut left"></div>
+            <div class="navbar left"></div>
+            <div class="navbut left"></div> 
+        </div>
+    </header>
+    <div>
+        <div class="front left">
+            <img src="" class="right" style="margin-right:100px; width:437px; height:246px;">
+            <div alt="front1" style="background-color:hotpink; margin-left:174px; margin-top:32px; width:144px; height:27px;"></div>
+            <div alt="front2" style="background-color:hotpink; margin-left:114px; margin-top:10px; width:259px; height:116px;"></div>
+            <div alt="front3" style="background-color:hotpink; margin-left:114px; margin-top:10px; width:259px; height:38px;"></div>
+        </div>
+    </div>
+    <section>
+        <div class="func left">
+            <div alt="func1" class="left" style="background-color:brown; left:0px; top:0px; width:313px; height:203px;">
+                <img src="" style="margin-left:113px; margin-top:32px; width:87px; height:73px;">
+                <div alt="func1-2" style="background-color:white; margin-left:76px; margin-top:10px; width:161px; height:20px;"></div>
+                <div alt="func1-3" style="background-color:white; margin-left:38px; margin-top:10px; width:230px; height:29px;"></div>
+            </div>
+            <div alt="func2" class="left" style="background-color:crimson; left:312px; top:0px; width:313px; height:203px;">
+                <img src="" class="left" style="margin-left:53px; margin-top:45px; width:97px; height:119px;">
+                <div alt="func1-2" style="background-color:white; margin-left:150px; margin-top:52px; width:98px; height:49px;"></div>
+                <div alt="func1-3" style="background-color:white; margin-left:150px; margin-top:10px; width:113px; height:46px;"></div>
+            </div>
+            <div alt="func3" class="left" style="background-color:maroon; left:625px; top:0px; width:313px; height:203px;">
+                <img src="" style="margin-left:82px; margin-top:15px; width:145px; height:97px;">
+                <div alt="func1-2" style="background-color:white; margin-left:49px; margin-top:10px; width:213px; height:17px;"></div>
+                <div alt="func1-3" style="background-color:white; margin-left:42px; margin-top:10px; width:228px; height:29px;"></div>
+            </div>
+        </div>
+        <div class="openad left">
+            <div alt="open" class="left" style="background-color:yellow; left:0px; top:0px; width:626px; height:290px;">
+                <div alt="Openings" class="left" style="background-color:red; margin-left:28px; margin-top:24px; width:113px; height:22px;"></div>
+                <div alt="Female" class="left" style="background-color: teal; margin-left: 10px; margin-top:30px; width:85px; height:14px;"></div> 
+                <div alt="openMenu" class="left" style="background-color:purple; margin-left:28px; margin-top:10px; width:566px; height:30px;">
+                    <div alt="All" class="left" style="width:50px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="Bar1" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="By" class="left" style="width:50px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="Bar2" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="Regional" class="left" style="width:50px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="Bar3" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                    <div alt="Parttime" class="left" style="width:50px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+                </div>
+                <img src-"" class="left" style="margin-left:28px; margin-top:10px; width:144px; height:161px;">
+                <table alt="Job" class="left" style="margin-left:10px; margin-top:10px; width:397px; height:114px; border:1px solid black; border-collapse:separate;">
+                    <tr>
+                        <th>Academy</th>
+                        <th>Accounting</th>
+                        <th>Until 0000.00.00</th>
+                    </tr>
+                    <tr>
+                        <td>Sports Center</td>
+                        <td>Top 12 Boarding</td>
+                        <td>Until 0000.00.00</td>
+                    </tr>
+                    <tr>
+                        <td>English Academy</td>
+                        <td>Day Care Center</td>
+                        <td>Until 0000.00.00</td>
+                    </tr>
+                    <tr>
+                        <td>Day care Center</td>
+                        <td>Acounting</td>
+                        <td>Until 0000.00.00</td>
+                    </tr>
+                    <tr>
+                        <td>Sports Center</td>
+                        <td>Top 11 Boarding</td>
+                        <td>Until 0000.00.00</td>
+                    </tr>
+                </table>
+                <div alt="12345" class="left" style="background-color:gold; margin-left:150px; margin-top:10px; width:115px; height:19px;">
+                        <div alt="1" class="left" style="background-color:gray; width:19px; height:15px; margin:2px;"></div>  
+                        <div alt="2" class="left" style="background-color:gray; width:19px; height:15px; margin:2px;"></div>
+                        <div alt="3" class="left" style="background-color:gray; width:19px; height:15px; margin:2px;"></div>
+                        <div alt="4" class="left" style="background-color:gray; width:19px; height:15px; margin:2px;"></div>
+                        <div alt="5" class="left" style="background-color:gray; width:19px; height:15px; margin:2px;"></div>
+                </div>
+            </div>
+            <div alt="ad1" class="left" style="background-color:gold; width:313px; height:157px;">
+                <img src="" class="left" style="margin-left:39px; margin-top:12px; width:145px; height:145px;">
+                <div alt="" class="left" style="background-color:brown; margin-left:10px; margin-top:40px; width:99px; height:51px;"></div>
+                <div alt="" class="left" style="background-color:brown; margin-left:10px; margin-top:10px; width:85px; height:29px;"></div>
+            </div>
+            <div alt="ad2" class="left" style="background-color:yellowgreen; width:313px; height:133px;">
+                <img src="" class="right" style="margin-right:30px; margin-top:18px; width:59px; height:115px;">
+                <div alt="" style="background-color:green; margin-left:43px; margin-top:24px; width:159px; height:49px;"></div>
+                <div alt="" style="background-color:green; margin-left:43px; margin-top:10px; width:164px; height:32px;"></div>
+            </div>
+        </div>
+        <div alt="" class="left" style="margin-left:250px; margin-top:10px;">
+            <div alt="All" class="left" style="width:280px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="Bar1" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="By" class="left" style="width:110px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="Bar2" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="Regional" class="left" style="width:110px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="Bar3" class="left" style="width:5px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+            <div alt="Parttime" class="left" style="width:150px; height:20px; background-color:white; margin:5px 10px 5px 10px;"></div>
+        </div>
+        <div alt="" class="left" style="background-color:black; margin-left:550px; margin-top:10px; width:200px; height:20px;"></div>
+</section>
+</body>
+</html>

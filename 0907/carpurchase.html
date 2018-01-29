@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Auto Dealership</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px;
+            /* 텍스트 상자 안쪽 여백 */
+            margin: 5px 0px;
+            display: inline-block;
+            border: 2.5px dotted olive;
+            transition: 0.5s;
+            /* 아래의 focus 효과까지 걸리는 시간 */
+            outline: none;
+            /* 불 들어오는 효과를 삭제 */
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: khaki;
+            padding: 14px;
+            margin: 5px 0px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            /* 마우스를 올리면 커서가 변화 */
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        input[type=text]:focus {
+            background-color: navajowhite;
+            color: red;
+            border: 2.5px dotted sienna;
+        }
+
+        input[type=submit]:hover {
+            background-color: olive;
+            color: white;
+        }
+
+        div {
+            min-width: 250px;
+            max-width: 700px;
+            border-radius: 8px;
+            background-color: lemonchiffon;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="index.html" style="text-decoration:none;"><span style="color:green;text-decoration:none;">인덱스로 돌아가기</span></a>
+    </div>
+    <div>
+        <form action="http://192.168.0.121/~c19lhk/savedata.php" method="POST">
+        <!-- http://192.168.0.121/~shin/php/checkPost.php -->
+        <!-- http://192.168.0.121/~c19lhk/0907/savedata.php -->
+            <!-- PHP 주소와 method를 통일해야 결과가 제대로 뜬다(?). POST는 URL에 정보가 노출되지 않고 용량에 제한이 없다. -->
+            <field>
+                <legend>
+                    <h1>차량 구입 신청서</h1>
+                </legend>
+                <label for="vehiclename">차종을 입력하세요.</label><br>
+                <input type="text" name="vehiclename" value="ex. 2017년형 포드 머스탱" id="vehiclename">
+                <!-- type는 선택지의 종류를, name은 선택지들의 분류를, value는 기본값을, id는 (text의 경우) 강조 효과를 준다. -->
+                <br><br>
+                <label for="payment">결제 방법 : </label><br>
+                <input type="radio" name="payment" value="현금" id="myhome">현금<br>
+                <input type="radio" name="payment" value="신용카드" id="myhome">신용카드<br>
+                <input type="radio" name="payment" value="할부" id="myhome">할부
+                <br><br>
+                <label for="passenger">총 사용자 : </label><br>
+                <select id="passenger" name="passenger">
+                <option value="1명">1명</option>
+                <option value="2명">2명</option>
+                <option value="3명">3명</option>
+                <option value="4명">4명</option>
+                <!-- 선택지를 한눈에 볼 수 있는 radio에 비해, select는 전체를 보지 못하므로 중요도가 낮아진다. -->
+            </select>
+                <input type="submit" value="제출">
+            </field>
+            <br><br>
+        </form>
+    </div>
+</body>
+
+</html>

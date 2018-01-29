@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        a {
+            padding: 5px;
+            display: block;
+        }
+
+        /* 1. 가장 큰 묶음인 header의 영역을 선택한다. */
+        header {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100px;
+            background-color: palegreen;
+            border: 1px solid black;
+            display: block;
+        }
+
+        /* 2. 로고 묶음은 왼쪽에, 로그인과 상단메뉴의 묶음은 오른쪽으로 보낸다. */
+        header .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 50px;
+            background-color: lavender;
+            float: left;
+        }
+
+        .logo span {
+            display: inline-block;
+            background-color: pink;
+            padding: 10px;
+        }
+
+        header .topnav {
+            background-color: linen;
+            float: right;
+        }
+
+        /* (li에 float를 적용하면 순서가 역전되므로, 상위 개념이자 순서에 무관한 ul에 float: right를 먹인다.) */
+        .authmenu {
+            background-color: yellow;
+            float: right;
+        }
+
+        .topmenu {
+            background-color: orange;
+            clear: both;
+        }
+
+        /* (내비게이션 바 만들기는 설명 생략) */
+        .topmenu li,
+        .authmenu li {
+            float: left;
+        }
+
+        a:active {
+            background-color: blue;
+            color: cyan;
+        }
+
+        /* 3. CSS Part 2에서 다뤘던 미디어쿼리를 사용하여 조건부 스타일을 만든다. */
+        @media only screen and (max-width: 400px) {
+
+            /* 모바일(해상도가 368px 미만으로 좁아질 경우 = float 초기화 & authmenu 숨기기) */
+            header .logo,
+            header .topnav {
+                float: initial;
+            }
+
+            .topmenu li {
+                float: initial;
+                display: block;
+            }
+            /* float가 초기화(initial)되면서, 줄어들어 연속으로 가로로 달라붙던 메뉴가 좌우로 길게 늘어나 세로로 정렬된다. */
+            .authmenu li {
+                display: none;
+            }
+        }
+
+        section {
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .clearfix {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 800px;">
+    <header class="clearfix">
+        <div class="logo"><span>로고</span></div>
+        <div class="topnav">
+            <nav>
+                <ul class="authmenu">
+                    <li><a href="#">로그인1</a></li>
+                    <li><a href="#">로그인2</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul class="topmenu">
+                    <li><a href="#">상단메뉴1</a></li>
+                    <li><a href="#">상단메뉴2</a></li>
+                    <li><a href="#">상단메뉴3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section>
+        무언가 내용을 쓰기는 써야겠지만<br>당장 생각은 안 난다
+    </section>
+    <section>
+            너도그래?<br>나도그래
+        </section>
+</div>
+</body>
+
+</html>

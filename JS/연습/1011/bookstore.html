@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>제목</h1>
+<h2>부제목</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+    <table>
+    <tr>
+        <td id="title"></td>
+        <td id="price"></td>
+        <td id="stock"></td>
+    </tr>
+    </table>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+    var jsbook = {title: '자바스크립트 입문', price: 30000, stock: 365}
+    // console.log(jsbook)
+    // console.log(jsbook.title)
+    // console.log(jsbook['price'])
+    // console.log(jsbook.stock)
+    // jsbook.stock = 10
+    // console.log(jsbook['stock'])
+
+    for(var p in jsbook)
+    {console.log(p + ' = ' + jsbook[p])}
+
+    document.getElementById('title').textContent = '"' + jsbook.title + '"';
+    document.getElementById('price').textContent = jsbook.price + '원';
+    document.getElementById('stock').textContent = jsbook.stock + '권';
+</script>
+</body>
+</html>

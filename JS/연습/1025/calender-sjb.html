@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .calendar {
+                border: 3px solid #000000;
+                background-color: #ffffff;
+                width: 300px;
+                height: 180px;
+                text-align: center;
+            }
+            .calendar tr,
+            .calendar th,
+            .calendar td {
+                border: 1px solid #000000;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <p>달력 출력</p>
+    <button type="button" onclick="calculate()">입력</button>
+    <div id = "cal"></div>
+    <script>
+        var month;
+        var year;
+        var row;
+        function calmonth(m){
+            var day = 0;
+            switch(m){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    day = 31;
+                    break;
+                case 2:
+                    day = 28;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    day = 30;
+                    break;
+            }
+            return day;
+        }
+
+        function calculate(){
+            var day = 0;
+            year = prompt('년도 입력');
+            month = prompt('월 입력');
+            month--;
+            day = calmonth((month + 1));
+            var time = new Date(year,month);
+            var caltime = new Date(year,month);
+            var week = time.getDay();
+            row = Math.ceil((week+day)/7);
+            var calendar = "<table class='calendar'>";
+            calendar += "<tr>";
+            calendar += "<th style = \"color: red\">일</th>";
+            calendar += "<th>월</th>";
+            calendar += "<th>화</th>";
+            calendar += "<th>수</th>";
+            calendar += "<th>목</th>";
+            calendar += "<th>금</th>";
+            calendar += "<th style = \"color: blue\">토</th>";
+            calendar += "</tr>";
+            var dNum = 1;
+            for (var i = 1; i <= row; i++) {
+                calendar += "<tr>";
+                for (var k = 1; k <= 7; k++) { 
+                    if(i === 1 && k <= week || dNum > day) {
+                        calendar += "<td> &nbsp; </td>";
+                    } else {
+                        if (caltime.getDay() == 0){
+                            calendar += "<td style = \"color: red\">" + dNum + "</td>";
+                            dNum++;
+                        }
+                        else if(caltime.getDay() == 6){
+                            calendar += "<td style = \"color: blue\">" + dNum + "</td>";
+                            dNum++;
+                        }
+                        else{
+                            calendar += "<td>" + dNum + "</td>";
+                            dNum++;
+                        }
+                        caltime.setDate(caltime.getDate() + 1);
+                    }
+                }
+                calendar += "</tr>";
+            }
+            document.getElementById("cal").innerHTML = calendar;
+        }
+        
+
+    
+    </script>
+    
+</body>
+</html>

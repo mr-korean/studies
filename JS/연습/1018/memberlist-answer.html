@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        사원 입사년월
+        <br>jar 2017-02
+        <br>hrk 2017-08
+        <br>jjk 2014-06
+        <br>jsh 2016-05
+        <br>kks 2014-04
+        <br>lhk 2012-12
+    </p>
+    <form action="#" id="form">
+            <input type="text" name="search" value="" placeholder="입사년도를 입력하세요.">
+            <input type="submit" onclick="searchMember()" value="검색" id="sub">
+        </form>
+    <p id="result"></p>
+<script>
+    var memberList =
+    [
+        {name:'jar', join:'2017-02', gender:'male', address:'#'},
+        {name:'hrk', join:'2017-08', gender:'male', address:'#'},
+        {name:'jjk', join:'2014-06', gender:'male', address:'#'},
+        {name:'jsh', join:'2016-05', gender:'male', address:'#'},
+        {name:'kks', join:'2014-04', gender:'male', address:'#'},
+        {name:'lhk', join:'2012-12', gender:'male', address:'#'}
+    ]
+    var list = "";
+        br = "<br>";
+        
+
+    function searchMember() {
+        // (년도별 검색 시스템)
+        var myform = document.getElementById('form').search.value; // 클릭한 시점부터 작동되므로 값이 있어야 불러오고 작동한다.
+        for (var i = 0; i < memberList.length; i++)
+        // .length는 마지막 변수의 숫자와 같다. (0부터 시작하므로)
+        {
+            var joinYear = memberList[i].join.substring(0, 4);
+            console.log(memberList.length);
+            for (var key in memberList[i])
+            {
+                if (Number(joinYear) >= myform)
+                // Number() = 문자열을 숫자로 변환시킨다.
+                {
+                    list += memberList[i][key] + " ";
+                    // memberList[i][key] = i번째 변수의 key를 가져온다. 대괄호가 붙을수록 배열 안으로 계속 더 들어간다.
+                    // ["A",[["B","C"],"D"],"E"]에서 "B"를 가져오려면 [1][0][0]이라고 써야 한다.
+                }
+
+            }
+            list += "<br>";
+            // memberList의 key를 불러와서 반복할 때마다 <br>을 추가한다.
+            // ※ 구문이 어디까지 반복되고, 종료된 후에 어디로 넘어가는지를 확인해야 이해가 빨리 된다.
+        }
+        document.getElementById('result').innerHTML = list;
+    }
+</script>
+</body>
+</html>

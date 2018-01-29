@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>버블링 예제 #1</title>
+</head>
+
+<body>
+    <div id="mn1">
+        메뉴1
+        <div id="mn2">
+            메뉴2
+            <div id="mn3">
+                메뉴3
+            </div>
+        </div>
+    </div>
+    <script>
+        // for문 내에서 끌어모은 mn들을 warning 함수로 전달하기 위해
+        // 클로저(Closure)를 사용하여 실행값을 
+
+        for (var i = 0; i < 3; i++) {
+            (function() {
+            var divs = document.getElementById("mn" + (i + 1));
+            divs.addEventListener("click", function() {
+                warning(this)
+                });
+            })();
+        }
+
+        function warning(what) {
+            alert(what.getAttribute("id"));
+            event.stopPropagation();
+        }
+
+        // =======================================================
+
+        var count = 0; // 카운터 0부터 시작
+        document.addEventListener("click", clickCounter); // 클릭하면 함수 실행
+        function clickCounter() {
+            count++; // 카운터 1씩 증가
+            window.alert(count); // alert로 알려줌
+        }
+    </script>
+</body>
+
+</html>

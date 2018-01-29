@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form action="#" id="enroll">
+            <input type="text" name="codename">
+            <input type="submit" value="제출">
+        </form>
+        <p id="output"></p>
+    </section>
+    <script>
+        document.getElementById('enroll').onsubmit = function getList() // 이벤트 발동 조건 = submit을 했을 경우 (on이 붙는 것은 거의 다 이벤트임)
+        {
+            var search = document.getElementById('enroll').codename.value; // enroll(form id)에서 입력하는 codename(input name)의 값을 search에 대입
+            document.getElementById('output').innerHTML += '▶' + search + '<br>' // output에 출력
+            return false; // form action을 통해 이동하는 문서(현재는 #이라 새로고침과 같음) 효과를 차단
+        }
+    </script>
+</body>
+</html>

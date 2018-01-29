@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .room {
+            display: flex;
+            /* 플렉스 시스템 도입 */
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            align-content: center; /* flex-wrap과 같이 사용해야 하며, 사용할 경우 align-items는 무효가 된다. */
+            width: 250px;
+            height: 200px;
+            background-color: lightgrey;
+            float: left;
+            margin-right: 2px;
+            box-sizing: border-box;
+            border: 1px solid darkgray;
+        }
+
+        .box {
+            /* 최소 1개 이상은 존재해야 함 */
+            background-color: green;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+
+        .font2em {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="room">
+        <div class="box">1</div>
+        <div class="box font2em">2</div>
+        <div class="box">3</div>
+    </div>
+    <div class="room">
+        <div class="box">1</div>
+        <div class="box font2em">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+</body>
+
+</html>

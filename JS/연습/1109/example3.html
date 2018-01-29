@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://www.w3schools.com/jsref/klematis.jpg" id="myImg" alt="Flower" width="150px" height="113px">
+    <p><button onclick="myFunction()">버튼</button>을 누르면 사진의 속성이 나옵니다.</p>
+    <p id="demo"></p>
+
+    <script>
+        function myFunction()
+        {
+            var x = document.getElementById('myImg');
+            var txt = "";
+            var i;
+            for (i = 0; i < x.attributes.length; i++)
+            {
+                txt = txt + x.attributes[i].name + " = " + x.attributes[i].value + "<br>";
+            }
+            document.getElementById('demo').innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

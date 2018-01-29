@@ -1,0 +1,65 @@
+body {
+    background-image: url("Holmes.jpg");
+}
+
+.pagetitle {
+    background-color: wheat;
+    text-align: center;
+    border: 3px dashed sienna;
+    outline: 3px dashed burlywood;
+    display: inline-block;
+}
+
+header nav ul {
+    padding-left: 0;
+}
+
+header nav ul li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+header nav ul li a {
+    padding: 3px 20px 3px 20px;
+    border: 1px solid brown;
+}
+
+header nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+aside nav ul {
+    padding-left: 0;
+}
+
+aside nav ul li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+aside nav ul li a {
+    padding: 3px 10px 3px 10px;
+    border: 1px solid brown;
+}
+
+aside nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    border-style: dashed;
+    text-align: center;
+}
+
+address {
+    border-style: dashed;
+    text-align: right;
+    font-style: italic;
+    color: red;
+}

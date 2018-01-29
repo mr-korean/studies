@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="screen"></p>
+    <button type="button" data-val="1" onclick="getValue(this)">1</button>
+    <button type="button" data-val="2" onclick="getValue(this)">2</button>
+    <button type="button" data-val="3" onclick="getValue(this)">3</button>
+    <button type="button" data-val="4" onclick="getValue(this)">4</button>
+    <button type="button" data-val="5" onclick="getValue(this)">5</button>
+    <br>
+    <button type="button" data-val="6" onclick="getValue(this)">6</button>
+    <button type="button" data-val="7" onclick="getValue(this)">7</button>
+    <button type="button" data-val="8" onclick="getValue(this)">8</button>
+    <button type="button" data-val="9" onclick="getValue(this)">9</button>
+    <button type="button" data-val="+" onclick="getValue(this)">+</button>
+    <button type="button" onclick="runCalc()">=</button>
+    <script>
+        var myArr = [];
+        var curStr = "";
+
+        var getValue = function (btn)
+        {
+            var n = btn.getAttribute('data-val');
+            console.log(n);
+            if (curStr === "")
+            {
+                myArr.push(n)
+                curStr += n;
+            }
+            else
+            {
+                curStr += n;
+                myArr[myArr.length - 1] = curStr;
+            }
+        }
+    </script>
+</body>
+</html>

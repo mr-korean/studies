@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="info"></p>
+    <input type="submit" onclick="localVar()" value="LOCAL VARIABLE">
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div style="width: 300px; height: 300px;" onmouseover="bgGreen()" onmouseout="bgWhite()" id="bgDiv"></div>
+    <script>
+        var gColor = 'Red';
+        var profile = {firstName:'honggi', lastName:'lee', age:28, fullName:function(){return this.lastName + "" + this.firstName}}
+        document.getElementById('info').innerHTML = profile.fullName();
+        /* 객체변수의 속성을 출력할 경우,
+        1. 객체변수의 이름 2. ()
+        이 두 가지를 작성했는지 반드시 확인하자.
+        */
+
+        var localVar = function()
+        {var color = 'Blue';
+    function printColor() {
+        var color = "Purple";
+        document.getElementById('div1').innerHTML = color;
+        //함수 안에서만 쓰이는 로컬변수이므로 Purple이 적용된다.
+    }
+    printColor();
+    document.getElementById('div2').innerHTML = color;
+    // 함수 밖에서 선언된 글로벌변수 Blue가 적용된다.
+    document.getElementById('div3').innerHTML = gColor;
+    // 찾는 변수가 있을 때까지 글로벌변수를 거슬러올라가 Red가 적용된다.
+}
+
+    function bgGreen()
+    {document.getElementById('bgDiv').style.backgroundColor = 'green'}
+    function bgWhite()
+    {document.getElementById('bgDiv').style.backgroundColor = 'white'}
+    </script>
+</body>
+</html>

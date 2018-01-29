@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>원시값의 저장 복사</title>
+</head>
+<body>
+    <script>
+        var myString = 'foo' // 원시 문자열 객체를 만든다.
+        // 메모리에 'foo'라는 문자열이 저장된다. 이것을 원시값이라 한다.
+
+        var myStringCopy = myString; // myString의 값 'foo'를 가져와서 사용한다. (myString 자체를 가져오는 게 아니다!)
+        // 즉 myStringCopy도 'foo'란 값을 가지는 것이지, 공유하는 것은 아니다.
+
+        var myStringCopy = null;
+        // myStringCopy의 값을 지워(null)버렸기 때문에 두 객체는 다른 값을 가지게 된다.
+        console.log(myString, myStringCopy) // foo, null
+
+        // 동일(==, 값만 비교)과 일치(===, 타입까지 비교) 연산자를 이용해 결과를 비교하면 알 수 있다.
+        // 예) 동일 myString == myStringCopy,; 일치는 ===
+
+
+
+        var str1 = 'Jung';
+        var str2 = String('Jung');
+        str1.concat(" Jun.")
+        console.log(str1); // 'Jung Jun.'이 출력된다.
+        
+        var temp = new String(str1);
+        temp.concat(" Jun.");
+        str1 = temp;
+        temp = null; //
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log에서 생성자가 어떻게 되는지 확인해 보자.
+        // 예) console.log(myNumber.constructor);
+        // 데이터 타입도 확인해 보자.
+        // 예) console.log(typeof myNumber);
+        var myNumber = new Number(23); // var MyNumber = 23
+        
+        var myString = new String('male');
+        var myBoolean = new Boolean(false);
+        var myObject = new Object();
+        var myArray = new Array('foo', 'bar');
+        var myFunction = new Function("x", "y", "return x*y")
+        var myDate = new Date();
+        var RegExp = new RegExp('\b');
+        var myError = new Error('Fuck!');
+
+        console.log(myError.constructor);
+        console.log(typeof myBoolean);
+    </script>
+</body>
+</html>

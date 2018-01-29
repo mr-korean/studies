@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Person = function (living, age, gender)
+        {
+            this.living = living;
+            this.age = age;
+            this.gender = gender;
+            this.getGender = function ()
+            {
+                return this.getGender
+            }
+        }
+
+        var cody = new Person(true, 33, 'male');
+        console.log("cody",cody);
+
+        var jung = new Person(true, 11, 'male');
+        console.log("jung",jung);
+
+        var jung2Obj = new Object();
+        jung2Obj.living = true;
+        jung2Obj.age = 33;
+        jung2Obj.getGender = function() {return age};
+        console.log("jung2Obj", jung2Obj);
+
+        var jung2 = {living : true, age : 33, getGender: function() {return age}}
+        console.log("jung2", jung2)
+
+        var jung3 = function() {
+            return {living : true, age : 33}
+        }
+        console.log("jung3", jung3)
+
+        // ==============================================================
+
+        var Student = function (position, gender)
+        {
+            this.position = position;
+            this.gender = gender;
+            this.getPosition = function ()
+            {
+                return this.getPosition
+            }
+        }
+
+        var lhk = new Student(11, 'male')
+        console.log(lhk.position);
+        console.log(lhk.getPosition);
+
+        var str1 = 'Jung';
+        var str2 = str1;
+        var str2 = 'Hong';
+    </script>
+</body>
+</html>

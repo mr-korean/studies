@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>조아랑씨 예제</title>
+    <style>
+    body {width:914px;margin:20px auto}
+    .container {margin:-10px 0 0 -10px}
+    .container div {box-sizing:border-box}
+    .box {width:288px; height:288px; border:1px solid darksalmon;float:left; margin:10px; padding:15px}
+    .box::after {content:"";display:table;clear:both}
+
+    .bk_sbox {width:75px; height:75px; background-color:darksalmon; margin: 5px}
+    .bk_smbox {width:160px; height:75px; background-color:darksalmon; margin: 5px}
+    .bk_slbox {width:245px; height:75px; background-color:darksalmon; margin: 5px}
+    .bk_mlbox {width:245px; height:160px; background-color:darksalmon; margin: 5px}
+    .bk_mbox {width:160px; height:160px; background-color:darksalmon; margin: 5px}
+
+    .gy_sbox {width:75px; height:75px; border:1px solid darksalmon; background-color:#eee; margin:5px}
+    .gy_msbox {width:75px; height:160px; border:1px solid darksalmon; background-color:#eee; margin:5px}
+
+    /* 위의 사례는 모든 박스에 마진(바깥여백) 5px씩을 주어 자동 정렬이 되게 한 것.
+       room의 패딩(안쪽여백) 15px와 합치면 position 쪽의 20px와 같아진다. (당연히 박스 사이의 간격은 5+5=10px로 동일) */
+
+    .top10 {margin-top:10px}
+    .top90 {margin-top:90px}
+
+    .left {float:left}
+    .left::after {content:"";display:table;clear:both}
+    .right {float:right}
+    .right::after {content:"";display:table;clear:both}
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- BOX 1 -->
+    <div class="box">
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+            <div class="bk_sbox left"></div>
+    </div>
+    <!-- BOX 2 -->
+    <div class="box">
+            <div class="bk_mlbox"></div>
+            <div class="gy_sbox top10"></div>
+    </div>
+    <!-- BOX 3 -->
+    <div class="box">
+        <div class="bk_smbox left"></div>
+        <div class="bk_sbox right"></div>
+        <div class="gy_sbox top90 right"></div>
+        <!-- 박스 2개를 각각 왼쪽과 오른쪽에 float로 띄우고, clear로 아래 박스가 못 따라오게 막은 것. -->
+    </div>
+    <!-- BOX 4 -->
+    <div class="box">
+        <div class="bk_slbox"></div>
+        <div class="gy_msbox left"></div>
+        <div class="gy_msbox left"></div>
+        <div class="gy_msbox left"></div>
+    </div>
+    <!-- BOX 5 -->
+    <div class="box">
+        <div class="bk_sbox left"></div>
+        <div class="bk_sbox left"></div>
+        <div class="gy_sbox right"></div>
+        <div class="bk_sbox left"></div>
+        <div class="bk_sbox left"></div>
+        <div class="gy_sbox right"></div>
+        <div class="gy_sbox right"></div>
+    </div>
+    <!-- BOX 6 -->
+    <div class="box">
+        <div class="bk_mbox top90 left"></div>
+        <div class="gy_sbox top90 right"></div>
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            /* 전체 영역 */
+            text-align: center;
+            background-color: rgb(245, 246, 247);
+        }
+
+        .worksheet {
+            max-width: 400px;
+            margin: auto;
+            padding: 0px;
+        }
+
+        h1 {
+            /* NAVER 로고 표시 */
+            font-family: BAUHS93;
+            font-weight: bold;
+            font-size: 3em;
+            color: rgb(45, 180, 0);
+        }
+        /* ====================================== */
+
+        ul li {
+            list-style-type: none;
+            margin-left: -40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            display: inline-block;
+            border: 1px solid silver;
+            color: gray;
+            box-sizing: border-box;
+        }
+        /* ====================================== */
+
+        input[name=gender] {
+            display:none;
+        }
+
+        .gender label {
+            float: left;
+            cursor: pointer;
+            display: block;
+            padding: 10px 0px;
+            width: 198px;
+            background-color: white;
+            border: 1px solid silver;
+            font-size: 0.9em;
+        }
+
+        input[id=male]:checked ~ label.male {
+            color: green;
+            border: 1px solid green;
+        }
+
+        input[id=female]:checked ~ label.female {
+            color: green;
+            border: 1px solid green;
+        }
+
+        input[type=submit] {
+            border: none;
+            background-color: rgb(31, 188, 2);
+            color: white;
+            padding: 20px 10px;
+            font-size: 1.2em;
+        }
+
+        input[type=submit]::before {
+            content: "<i class="fa fa-check" aria-hidden="true"></i>";
+        }
+
+        footer {
+            /* 약관 표시 영역 */
+            margin-top: 40px;
+            font-size: 0.7em;
+        }
+
+        .left {
+            float:left;
+        }
+
+        .right {
+            float:right;
+        }
+        
+        .clearfix {
+            content:"";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<!-- 가로는 400 -->
+
+<body>
+    <div class="worksheet">
+    <header style="padding: 40px;">
+        <img src="NAVER.png" style="margin:auto;">
+    </header>
+    <section>
+        <form action="http://192.168.0.121/~c19lhk/0907_naver.php" method="POST">
+            <ul>
+                <li><input type="email" name="account" placeholder="아이디@이메일" required></li>
+                <li><input type="password" name="password" placeholder="비밀번호" disabled></li>
+                <li><input type="password" name="passwordcheck" placeholder="비밀번호 재확인" disabled></li>
+            </ul>
+            <ul>
+                <li><input type="text" name="name" placeholder="이름" required></li>
+                <li class="gender" style="color: gray; font-size: 0.9em;">
+                    <input type="radio" value="male" name="gender" id="male">
+                    <input type="radio" value="female" name="gender" id="female">
+                    <label class="male" for="male">남자</label>
+                    <label class="female" for="female">여자</label>
+                </li>
+                <li>
+                    <input class="left clearfix" style="width:16%;text-align: center;" type="text" name="title" value="생일" disabled>
+                    <input class="left" style="width:28%;" type=text min="1900" max="2017" minlength=4 maxlength=4 name="birthyear" placeholder="년(4자)">
+                    <select class="left" style="width:28%; height:41px; font-weight: bold;">
+                        <option value="월">월</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <input class="left" style="width:28%;" type="text" min="1" max="31" maxlength=2 name="birthday" placeholder="일">
+                </li>
+                <li><input type="text" name="emailcheck" placeholder="본인확인 이메일(선택)"></li>
+            </ul>
+            <ul>
+                <li><input style="width:25%;" type=number placeholder=+82 step=1 min=+83 max=+99 disabled><input style="width:75%;"
+                        type="tel" name="mobile" minlength="10" maxlength="11" pattern="[0-9]{10}[0-9]?" placeholder="'-'를 뺀 휴대전화 번호 10~11자리"></li>
+                <li><input type="text" name="regnum" placeholder="인증번호(선택)" id="regnum" disabled></li>
+                <li><input style="margin-top: 30px;" type="submit" value="가입하기"></li>
+            </ul>
+        </form>
+        <!-- <i class="fa fa-check" aria-hidden="true"></i> -->
+    </section>
+    <footer>
+        이용약관 | <strong>개인정보처리방침</strong> | 책임의 한계와 법적조치 | 회원정보 고객센터<br><br>
+        <span style="font-family:BAUHS93;font-weight:bold;color:green">NAVER</span> Copyright <strong>ⓒNAVER Corp.</strong>        All Rights Reserved.
+    </footer>
+</div>
+</body>
+
+</html>

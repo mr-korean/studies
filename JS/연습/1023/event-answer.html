@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <button type="button" onclick="getWinner()" id="demo">뽑기</button>
+    <p id="result"></p>
+    <script>
+        var prizeList = // 경품 목록
+        [
+            {prize: '<font style="color:teal;">자동차</font>',count: 1},
+            {prize: '<font style="color:blue;">세탁기</font>',count: 3},
+            {prize: '<font style="color:hotpink;">청소기</font>',count: 10},
+            {prize: '<font style="color:orange;">드라이기</font>',count: 20}
+        ]
+
+        var totalCases = 50; // 총 경우의 수
+        var winCase; // 당첨자의 수
+        var loseCase; // 비당첨자의 수 = 총 응모자 - 당첨자
+
+        function init() // 이벤트 초기 설정
+        {
+            winCase = currentTotalPrize(); // [2] 당첨 상품 개수
+            loseCase = totalCases - winCase;
+        }
+
+        // (여기까지 기본 설정)
+        // ==========================================================
+        // 
+
+        // [1] 1부터 n까지 랜덤 숫자 추출
+        // 용도: 당첨자를 골라낸다. 
+        function randomNum(n)
+        {
+            return Math.floor(Math.random() * n + 1)
+        }
+
+        // [2] 당첨 상품 개수
+        function currentTotalPrize()
+        {
+            var allPrize = 0;
+            for (var i = 0; i < prizeList.length; i++)
+            {allPrize += prizeList[i]["count"]} // 경품 목록에 있는 각 요소의 count를 합산 (초기설정: 1 + 3 + 10 + 20 = 34)
+            return allPrize;
+        }
+
+        // [3] 당첨자 확인
+        function getWinner(n)
+        {
+            var rNum = randomNum(totalCases); // [1] 랜덤 숫자 추출
+            if (rNum <= winCase) // 랜덤 추출한 숫자가 상품 개수 이내일 경우(즉 상품 번호 중 하나를 골랐을 경우)
+            {
+                var prize = removePrize(rNum);
+                document.getElementById('result').innerHTML += "<font color='green'>당첨되셨습니다!</font> 상품: " + prize + " / 당첨 번호: " + rNum + "<br>";
+            }
+            else
+            {
+                removeLoser();
+                document.getElementById('result').innerHTML += "<font color='red'>탈락하셨습니다!</font> 다음 기회에... / 탈락 번호: " + rNum + "<br>";
+            }
+            return
+
+        }
+
+        // [4] 당첨번호와 상품 연결
+        function selectPrize(n)
+        {
+            var idx = 0;
+            var myNum = 0;
+            for (var i = 0; i < prizeList.length; i++)
+            {
+                myNum = currentTotalPrize(); // 현재 상품 총합
+                if (n <= myNum && n > 0) // 당첨번호가 상품 총합 내에 있고 0보다 클 경우
+                {
+                    idx = i;
+                    break;
+                }
+            }
+            return idx;
+        }
+
+        // [5] 상품 수 감소 또는 상품 삭제하기
+        function removePrize(n)
+        {
+            var sp = selectPrize(n); // [4] 당첨번호와 상품 연결
+            var cur = prizeList[sp]["count"]; // 경품 개수
+            var prize = prizeList[sp]["prize"]; // 경품 종류
+            cur--;
+            if (cur < 1)
+            {
+                prizeList.splice(sp, 1);
+            }
+            else {
+                prizeList[sp]["count"] = cur;
+            }
+            winCase = currentTotalPrize();
+            leftChance();
+            return prize;
+        }
+
+        // [6] 탈락 횟수 제외
+        function removeLoser()
+        {
+            loseCase--; // [0] 기본 설정
+            leftChance(); // [7] 남은 추첨 계산
+            return;
+        }
+
+        // [7] 남은 추첨 계산
+        function leftChance()
+        {
+            totalCases = winCase + loseCase; // [0] 기본 설정
+            endEvent(); // [8] 이벤트 종료
+            return;
+        }
+
+        // =======================================================
+
+        // [8] 이벤트 종료
+        function endEvent()
+        {
+            if(totalCases == 0)
+            {
+                var x = document.getElementById('demo')
+                x.disabled = true;
+                x.textContent = "추첨이 모두 끝났습니다."
+            }
+        }
+    </script>
+</body>
+
+</html>

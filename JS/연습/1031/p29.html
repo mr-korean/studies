@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>복합객체는 참조를 비교한다.</title>
+</head>
+<body>
+    <script>
+        var strFoo = "same";
+        var strBar = "same";
+        console.log(strFoo === strBar);
+        // 원시값 상에서 일치(값&타입)하는지 비교하면 일치하므로 true가 나온다.
+
+        var objFoo = {same: 'same'};
+        var objBar = {same: 'same'};
+
+        console.log(objFoo === objBar);
+        // 두 객체가 가리키는 주소가 다르기 때문에 비교하면 false가 나온다.
+
+        var objFoo2 = {same: 'same'};
+        var objBar2 = objFoo2;
+
+        console.log(objFoo2 === objBar2);
+        // 실질적으로 같은 객체에서 받아오기 때문에 true가 나온다.
+    </script>
+</body>
+</html>

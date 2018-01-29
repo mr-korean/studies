@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 98%;
+            height: 98%;
+            margin: auto;
+        }
+
+        .main {
+            position: relative;
+            width: 400px;
+            margin: auto;
+            height: 700px;
+            ;
+            border: 1px solid black;
+            padding: 0;
+        }
+
+        .result,
+        .number div {
+            float: left;
+            background-color: rgba(0, 37, 148, 0.719);
+            color: white;
+            margin: 4px;
+            font-size: 3.5em;
+            height: 90px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            line-height: 0;
+        }
+
+        .result {
+            text-align: end;
+            padding-right: 10px;
+            font-size: 3.0em;
+        }
+
+        .number div button {
+            background-color: rgba(0, 37, 148, 0.719);
+            font-size: 0.8em;
+            color: white;
+        }
+
+        .result {
+            width: 385px;
+        }
+
+        .number div {
+            width: 90px;
+        }
+
+        .number #zero {
+            width: 285px;
+        }
+
+        .equl {
+            float: left;
+            width: 385px;
+            height: 90px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .equl button {
+            background-color: rgb(187, 0, 0);
+            color: white;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="result" id="rel">result</div>
+        <div class="number">
+            <div>
+                <button class="data" data-num="bac">←</button>
+            </div>
+            <div>
+                <button class="data" data-num="C">C</button>
+            </div>
+            <div>
+                <button class="data" data-num=(>(</button>
+            </div>
+            <div>
+                <button class="data" data-num=)>)</button>
+            </div>
+            <div>
+                <button class="data" data-num="7">7</button>
+            </div>
+            <div>
+                <button class="data" data-num="8">8</button>
+            </div>
+            <div>
+                <button class="data" data-num="9">9</button>
+            </div>
+            <div>
+                <button class="data" data-num="/">/</button>
+            </div>
+            <div>
+                <button class="data" data-num="4">4</button>
+            </div>
+            <div>
+                <button class="data" data-num="5">5</button>
+            </div>
+            <div>
+                <button class="data" data-num="6">6</button>
+            </div>
+            <div>
+                <button class="data" data-num="*">*</button>
+            </div>
+            <div>
+                <button class="data" data-num="1">1</button>
+            </div>
+            <div>
+                <button class="data" data-num="2">2</button>
+            </div>
+            <div>
+                <button class="data" data-num="3">3</button>
+            </div>
+            <div>
+                <button class="data" data-num="-" id="mine">-</button>
+            </div>
+            <div class="data" id="zero" data-num="0">
+                <button>0</button>
+            </div>
+            <div>
+                <button class="data" data-num=+ id="plus">+</button>
+            </div>
+        </div>
+        <div class="equl">
+            <button class="data" data-num="equ" id="equl">=</button>
+        </div>
+    </div>
+    <script>
+        var numbers = document.querySelectorAll('.data');
+        var dat = "";
+        var newdat = 0;
+        var resdat
+        var replu = 0;
+        var text = 0;
+        var a = 0;
+        var newdat1 = 0;
+        var text1 = 0;
+        for (var i = 0; i < numbers.length; i++) {
+
+
+            numbers[i].onclick = function math() {
+                var a = (this.dataset.num);
+
+                if (a === "bac") {
+                    dat = String(dat);
+                    dat = dat.slice(0, dat.length - 1);
+                    document.getElementById('rel').innerHTML = dat
+                } else if (a === "C") {
+                    dat = "";
+                    newdat = 0;
+                    text = 0;
+                    replu = 0;
+                    document.getElementById('rel').innerHTML = dat
+                } else if (a === "equ") {
+
+
+
+
+                    for (var i = 0; i < dat.length; i++) {
+                        var slicenum = dat.slice(i, i + 1);
+                        if (slicenum === "+") {
+                            if (newdat === 0) {
+                                newdat = parseInt(dat.slice(0, i));
+                            }
+                            text = parseInt(dat.slice(i + 1, dat.length));
+                            newdat = newdat + text;
+                        } else if (slicenum === "-") {
+                            if (newdat === 0) {
+                                newdat = parseInt(dat.slice(0, i));
+                            }
+                            text = parseInt(dat.slice(i + 1, dat.length));
+                            newdat = newdat - text;
+                        } else if (slicenum === "/") {
+                            if (newdat === 0) {
+                                newdat = parseInt(dat.slice(0, i));
+                            }
+                            text = parseInt(dat.slice(i + 1, dat.length));
+                            newdat = newdat / text;
+                        } else if (slicenum === "*") {
+                            if (newdat === 0) {
+                                newdat = parseInt(dat.slice(0, i));
+                            }
+                            text = parseInt(dat.slice(i + 1, dat.length));
+                            newdat = newdat * text;
+                        } else if (slicenum === "(") {
+                            a = dat.slice(i + 1, dat.length);
+                        } else if (slicenum === ")") {
+
+                            a = a.slice(0, i);
+                            for (var i = 0; i < a.length; i++) {
+                                var inslicenum = a.slice(i, i + 1);
+                                if (inslicenum === "+") {
+                                    if (newdat1 === 0) {
+                                        newdat1 = parseInt(a.slice(0, i));
+                                    }
+                                    text1 = parseInt(a.slice(i + 1, a.length));
+                                    newdat1 = newdat1 + text1;
+                                } else if (inslicenum === "-") {
+                                    if (newdat1 === 0) {
+                                        newdat1 = parseInt(a.slice(0, i));
+                                    }
+                                    text1 = parseInt(a.slice(i + 1, a.length));
+                                    newdat1 = newdat1 - text1;
+                                } else if (inslicenum === "/") {
+                                    if (newdat === 0) {
+                                        newdat = parseInt(a.slice(0, i));
+                                    }
+                                    text1 = parseInt(a.slice(i + 1, a.length));
+                                    newdat1 = newdat1 / text1;
+                                } else if (inslicenum === "*") {
+                                    if (newdat1 === 0) {
+                                        newdat = parseInt(a.slice(0, i));
+                                    }
+                                    text1 = parseInt(a.slice(i + 1, a.length));
+                                    newdat1 = newdat1 * text1;
+                                }
+                            }
+                            newdat = newdat + newdat1;
+                        }
+
+                    }
+                    document.getElementById('rel').innerHTML = newdat;
+                } else {
+                    dat += a
+                    document.getElementById('rel').innerHTML = dat
+                }
+
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>

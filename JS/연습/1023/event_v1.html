@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>100회 한정 경품 이벤트</p>
+    <p id="demo"></p>
+    <script>
+        // 1. 경품 배열 만들기
+        // 2. 추첨 및 제외 함수 만들기
+        // (1~100 중 랜덤 숫자 추출 -> 각 숫자를 배열에 대입 -> 맞는 요소를 제외하고 과정 반복)
+        var prize1 = ['<font style="color:blue;font-weight:bold;">자동차</font>']
+        var prize2 = ['<font style="color:green;font-weight:bold;">세탁기</font>', '<font style="color:green;font-weight:bold;">세탁기</font>', '<font style="color:green;font-weight:bold;">세탁기</font>']
+        
+        var prize3 = []
+        for (i = 0; i < 10; i++)
+        {prize3[i] = '<font style="color:hotpink;">청소기</font>';}
+
+        var prize4 = []
+        for (j = 0; j < 20; j++)
+        {prize4[j] = '<font style="color:orange;">드라이기</font>';}
+
+        var prize5 = []
+        for (k = 0; k < 66; k++)
+        {prize5[k] = '<font style="color:red;">꽝!</font>';}
+        var prize = prize1.concat(prize2, prize3, prize4, prize5); // 상품 목록 합치기
+
+
+
+        var result = ""
+        function lottery()
+        {
+            for (l = 100; l > 0; l--)
+            {
+                prize.sort(function(a, b){return 0.5 - Math.random()}); // 상품 목록 뒤섞기
+                var win = prize.pop();
+                var chance = l;
+                result += "남은 기회: " + chance + "번 / 상품: " + win + "<br>";
+                document.getElementById('demo').innerHTML = result;
+                // 함수 해설
+                // (1) l은 100부터 1까지 1씩 줄어들게 한다.
+                // (2) 배열 prize를 랜덤으로 섞는다.
+                // (3) 배열 prize에서 맨 마지막 값을 추출하여 win에 대입한다.
+                // (4) (3)을 끝낸 횟수 l을 chance에 대입한다.
+                // (5) win과 chance를 이용하여 결과를 설명하는 문장을 연결한다.
+                // (6) 연결된 결과 목록을 demo에 출력한다.
+            }
+        }
+        lottery();
+    </script>
+</body>
+</html>

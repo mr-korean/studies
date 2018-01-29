@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://192.168.0.121/~shin/php/checkPost.php/" method="POST">
+        <ul>
+            <li>
+                <label for="username">귀하의 이름은 무엇입니까?</label><br><input type="text" name="username" value="(여기에 입력하세요.)" id="username">
+            </li>
+            <li>
+                귀하의 성별은 무엇입니까?<br><input type="radio" name="gender" value="남성">남성<br>
+                <input type="radio" name="gender" value="여성">여성
+            </li>
+            <li>
+                <input type="image" src="img_submit.gif" alt="제출하기">
+            </li>
+            <li>
+                <input type="button" value="누르면 터집니다" onclick="alert('콰쾅!')">
+            </li>
+            <li>야식은 역시...<br><input type="checkbox" name="nightfood" value="chicken">치킨<br>
+            <input type="checkbox" name="nightfood" value="pizza">피자</li>
+            <li>
+                <input type="hidden" name="shadow" value="안보이지...">
+            </li>
+            <li>하루에 #번 사랑을 말하고<br>
+                #번 웃고<br>
+                #번의 키스를 해줘<br>
+                날 열어주는 단 하나뿐인 비밀번호야<br>
+                <input type="password" name="yoonha's"></li>
+            <li>
+                타임머신?<br>
+                    <input type="datetime-local" name="birthday" min="1900-01-01" max="2017-09-06">
+            </li>
+            <li>
+                자동차 색깔을 정해주세요.<br>
+                <input type="color" placeholder="black" multiple>
+            </li>
+            <li>
+                고객님의 연락처는?<br>
+                <input type=tel placeholder="000-0000-0000" pattern="^\d{3}[-\s]\d{3,4}[-\s]\d{4}.*?$" autocomplate>
+                <input type="tel" name="mobile" maxlength="11" pattern="[0-9]{10}[0-9]?" title="'-'를 뺀 휴대전화 번호 10~11자리를 입력해주세요.">
+            </li>
+            <li>
+                밀그램의 복종 실험<br>
+                <input type="range" min="0" max="400">볼트
+            </li>
+            <li>
+                <input type="search" result="5" autofocus placeholder="구글쓰세요 두번쓰세요">
+            </li>
+            <li><input type=url list=link_set name=link>
+                <datalist id=link_set>
+                <option label=모바일 네이버 value=http://m.naver.com>
+                <option label=모바일 다음     value=http://m.daum.net>
+                </datalist></li>
+            <li>
+                ♪키컸으면♬<br>
+                <input type=number value=160 step=0.1 min=160 max=230>cm</li>
+            <li>
+                    <input type="reset">
+            </li>
+            <li><input type="submit" value="제출하기"></li>
+        </ul>
+    </form>
+<br>
+('자동차 구입 신청서'로 만들어 볼 것)
+</body>
+
+</html>

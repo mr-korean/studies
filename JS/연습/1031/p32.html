@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체의 수정</title>
+</head>
+<body>
+    <script>
+    // ※ 이 경우 모든 String에 적용이 되므로,
+    // 실무 작업에서는 String()과 같이 내장 생성자 객체(p11)를 수정하는 것은 권장하지 않는다.
+    // 대개는 각 스트링을 개별적으로 수정한다.
+    // 이 예시에서는 자바스크립트 객체가 동적으로 작동하는 점을 설명하고 있다.
+
+    String.augmentedProperties = []; // String은 생성자 중 문자열을 담당하며, augmentedProperties로 확장 속성을 추가한 것이다.
+    // augmentedProperties 속성을 추가해 내장 String 생성자 함수를 확장한다.
+
+    if (!String.prototype.trimIT)
+    // prototype 객체에 trimIT() 함수가 없으면 추가한다.
+    {
+        String.prototype.trimIT = function ()
+        {
+            return this.replace(/^\s+|\s+$/g, '');
+            // 양쪽에 공백이 있으면 없애는 걸로 대체하라는 뜻.
+        }
+    }
+
+    // 이제 augmentedProperties 배열에 trimIT 문자열을 추가한다.
+    String.augmentedProperties.push('trimIT');
+
+    var myString = '    trim me     ';
+
+
+
+    // 새로 만든 trimIT 문자열 메소드를 실행해 본다. 'trim me'가 기록된다. trimIT 함수가 추가 및 실행되어 공백이 사라진다.
+    console.log(myString.trimIT);
+    
+
+    // 'trimIT'가 기록된다.
+    console.log(String.augmentedProperties.join())
+    </script>
+</body>
+</html>

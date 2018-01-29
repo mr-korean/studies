@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="screen"></p>
+    <button type="button" data-val="1" onclick="getValue(this)">1</button>
+    <button type="button" data-val="2" onclick="getValue(this)">2</button>
+    <button type="button" onclick="runCalc()">=</button>
+    <script>
+        var val1, val2;
+        var getValue = function (btn){
+            val1 = btn.getAttribute('data-val');
+        }
+        var runCalc = function(val1,val2){
+            var elem = document.getElementById('screen');
+            elem.textContent = val1 + val2;
+        }
+    </script>
+</body>
+
+</html>

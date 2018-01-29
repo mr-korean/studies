@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>랜덤 숫자 생성기</title>
+</head>
+<body>
+<h3>랜덤 숫자 생성기</h3>
+<p>Math.random()은 기본적으로 0 이상, 1 미만(즉 0~0.99) 중 하나를 무작위로 산출한다.</p>
+<p>따라서 Math.floor((Math.random() * a) + b = 1)라는 공식을 작성하면</p>
+<p>최소 b에서 최대 a + b의 값을 도출할 수 있다.</p>
+<p id="demo"></p>
+<button onclick="addRandom()">랜덤값 100개 생성</button>
+<script>
+function addRandom()
+{
+for (i = 0; i <= 100; i++)
+{
+var x = Math.floor((Math.random() * 3) + 1);
+document.getElementById("demo").innerHTML += x + "<br>";
+}
+}
+</script>
+</body>
+</html>

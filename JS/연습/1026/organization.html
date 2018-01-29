@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>It's PAYDAY fellas!</h3>
+    <h4>Masterminds</h4>
+    <ul id="mastermind"></ul>
+    <h4>Enforcers</h4>
+    <ul id="enforcer"></ul>
+    <h4>Technician</h4>
+    <ul id="technician"></ul>
+    <h4>Ghosts</h4>
+    <ul id="ghost"></ul>
+    <script>
+        var masterminds = ['Tommy Vercetti', 'Sean Johnson', 'Toni Cipriani', 'Wu Zi Mu']
+        var enforcers = ['Claude', 'Mike', 'Reaper']
+        var technicians = ['Sombra', 'Mercy', 'Winston']
+        var ghosts = ['Stukov', 'Pinker']
+
+        for (var i = 0; i < masterminds.length; i++)
+        {
+            var li = document.createElement('li'); // 문서에 li라는 엘리먼츠(태그)를 삽입
+            document.getElementById('mastermind').appendChild(li) // 태그를 삽입하는 위의 변수를 id에 자식(Child)으로 삽입
+            li.textContent = masterminds[i]; // 그 삽입되는 변수의 내용은 ~으로 함
+        }
+        for (var i = 0; i < enforcers.length; i++)
+        {
+            var li = document.createElement('li');
+            document.getElementById('enforcer').appendChild(li);
+            li.textContent = enforcers[i];
+        }
+        for (var i = 0; i < technicians.length; i++)
+        {
+            var li = document.createElement('li');
+            document.getElementById('technician').appendChild(li);
+            li.textContent = technicians[i];
+        }
+        for (var i = 0; i < ghosts.length; i++)
+        {
+            var li = document.createElement('li');
+            document.getElementById('ghost').appendChild(li);
+            li.textContent = ghosts[i];
+        }
+    </script>
+</body>
+</html>

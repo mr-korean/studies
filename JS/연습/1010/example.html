@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>제목</h1>
+<h2>부제목</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+	<p id="dangerous">저 새는 해로운 새다.</p>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script src="thatbird.js"></script>
+<script>
+    console.log('해로운 새다.')
+    // console.log(document.getElementById('dangerous'));
+
+    document.getElementById('dangerous').textContent = new Date();
+    // document.getElementById('dangerous').textContent = '해로운 새라니까';
+    console.log(document.getElementById('dangerous').textContent)
+
+    // console.log(window.confirm('문을 여시겠습니까?'));
+
+    // if(window.confirm('인생극장 당신의 선택은?'))
+    // {console.log('선택에 찬성한다.')}
+    // else {console.log('선택에 반대한다.')}
+
+    var seeHelp = window.prompt('도움말을 보시겠습니까?')
+    console.log(seeHelp)
+    
+    if(seeHelp === 'yes')
+    {window.alert('스페이스바를 누르면 점프합니다.')}
+    else if (seeHelp === 'no')
+    {window.alert('싫으면 어쩔 수 없죠 뭐...')}
+    else {window.alert('아무것도 안 하시게요?')}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 함수는 코드를 묶어놓은 코드 블록
+        // 코드는 구문으로 이루어져 있고 구문은 ;로 끝난다.
+        var Student = function(pname, ptel)
+        {
+            this.name = pname;
+            this.tel = ptel;
+            this.getName = function()
+            {
+                return this.name // return은 값을 출력하고 마무리
+            };
+        };
+
+        // jung이라는 객체를 만들면 위의 형식을 그대로 따라감
+        var jung = new Student("Jung Han", "010-2343-5321"); // new는 뒤에 오는 것이 생성자임을 나타낸다.
+
+        // jung의 이름을 받아오려면?
+        var jungName = jung.getName();
+
+
+
+        // ======================================================================
+        // 함수를 만드는 두 가지 방법
+        // (1) function show() {}
+        // (2) var show = function(매개변수) {}
+        var show = function(para)
+        {
+            alert("Howdie" + para);
+        }
+        // 함수의 정의를 돌려준다. (단, (2)의 형식으로 작성했을 경우만?)
+        var fn = show;
+        // 함수의 실행한 결과값을 돌려준다.
+        var fnResult = show("Jung");
+
+        // ======================================================================
+    </script>
+</body>
+</html>

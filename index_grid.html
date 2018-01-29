@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+
+        .august {
+            margin-left: 0px;
+        }
+
+        .august li {
+            position: relative;
+            border: 1px solid green;
+            display: inline-block;
+            /* 2번째 방법 = display: table; */
+            margin: 5px;
+            text-align: center;
+            width: 150px;
+            height: 100px;
+        }
+
+        .august li a,
+        .august li del {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            /* 2번째 방법 = display: table-cell; */
+        }
+
+        .august2 {
+            margin-left: 0px;
+        }
+
+        .august2 li {
+            border: 1px solid green;
+            display: table;
+            float: left;
+            /* 2번째 방법 = display: table; */
+            margin: 5px;
+            text-align: center;
+        }
+
+        .august2 li a,
+        .august2 li del {
+            width: 150px;
+            display: table-cell;
+            padding: 20px;
+
+            /* 2번째 방법 = display: table-cell; */
+        }
+
+        .clearfix {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position:relative; border:2px dashed red; width:200px; height:100px; background-color: pink;text-align: center;">
+        <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); padding:10px; width:100%;">
+            <span style="color:red;font-weight:bold;">※ WARNING ※<br>체력이 부족합니다.</span><br>
+            <meter value="20" min="0" max="100" style="margin-top:10px;"></meter>
+        </div>
+    </div>
+    <h1>중요 작업 리스트</h1>
+    <ul>
+        <li><a href="member/index.html">비상연락망</a></li>
+        <li><a href="index_grid.html">4x4 표같은 버튼 목록 만들기</a></li>
+        <li><a href="social/index.html">여성인력 완성 작업</a></li>
+        <li><a href="MyPage/index.html">개인 페이지 만들기</a></li>
+    </ul>
+    <h1>2017년 8월</h1>
+    <ul class="august2">
+        <li><a href="/~c19lhk/index.html">메인<br>페이지</a></li>
+        <li><a href="08/0801/index.html">8월 1일<br>(정리 끝)</a></li>
+        <li><a href="08/0802/index.html">8월 2일<br>(정리 끝)</a></li>
+        <li><a href="08/0803/index.html">8월 3일<br>(정리 끝)</a></li>
+        <li><a href="08/0804/index.html">8월 4일<br>(정리 끝/수정 남음)</a></li>
+        <li><a href="08/0807/index.html">8월 7일<br>(정리 끝)</a></li>
+        <li><a href="08/0808/myhome.html">8월 8일<br>(예제)</a></li>
+        <li><a href="08/0809/0809_3.html">8월 9일<br>(정리 끝)</a></li>
+        <li><a href="08/0810/index.html">8월 10일<br>(정리 끝)</a></li>
+        <li><a href="08/0816/index.html">8월 16일<br>(내비게이션 입문)</a></li>
+        <li><a href="08/0817/index.html">8월 17일<br>(1차 사이트 제작)</a></li>
+        <li>
+            <del>8월 22일<br>(예비군)</del>
+        </li>
+        <li><a href="08/0823/index.html">8월 23일<br>(포지션&플로트)</a></li>
+        <li><a href="08/0824/index.html">8월 24일<br>(사이트 만들기)</a></li>
+        <li><a href="08/0828/index.html">8월 28일<br>(플로트 박스)</a></li>
+        <li><a href="08/0830/index.html">8월 30일<br>(내비게이션 바)</a></li>
+    </ul>
+    <h1 class="clearfix">2017년 9월</h1>
+    <ul>
+        <li><a href="0901/index.html">9월 1일(사이트 만들기-동물원)</a></li>
+        <li><a href="0905/index.html">9월 5일(카운터 등등)</a></li>
+        <li><a href="0906/index.html">9월 6일(겟vs포스트, 폼 디자인 등등)</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
+</body>
+
+</html>

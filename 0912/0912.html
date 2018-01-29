@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        #contactinfo {
+            position: relative;
+            z-index: 1;
+            width: 300px;
+            margin: 60px auto 0;
+            padding: 10px;
+            background: black;
+            height: auto;
+            opacity: .45;
+            color: white;
+        }
+    </style>
+    <script>
+        function myMap() {
+            var lat = "35.794647";
+            var lon = "127.140468";
+            latlon = new google.maps.LatLng(lat, lon);
+            var mapOptions = {
+                center: new google.maps.LatLng(lat, lon),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var marker = new google.maps.Marker({
+                position: latlon,
+                map: map,
+                title: "한국마이스터 063-717-1001"
+            });
+        }
+    </script>
+    </meta>
+</head>
+
+<body onload="myMap()">
+    <div id="map">
+        My map will go here
+    </div>
+    <div id="contactinfo">
+        <h2>우리집</h2>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap">
+    </script>
+</body>
+
+</html>

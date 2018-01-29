@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 더 이상 단순화할 수 없기 때문에 원시적(primitive)이라 하여 이를 원시값이라 부른다.
+        var myString = 'string';
+        var myNumber = 10;
+        var myBoolean = false;
+        var myNull = null;
+        var myUndefined = undefined;
+
+        // 복합 객체
+        // 복합 객체는 자바스크립트 자료형(타입. ex. number, string, boolean...)의 대부분(p11 참고)을 속성으로 포함할 수 있다.
+        // 복합 객체는 다른 객체를 포함할 수 있다.
+        // ex. var numObj = {1, 2, 3, 4, 5}
+        var myObject =
+        {
+            myString : 'string',
+            myNumber : 10,
+            myBoolean : false,
+            myNull : null,
+            myUndefined : undefined,
+            otherObj : myObject2 // 다른 객체를 포함한 상황.
+        }
+        console.log(myObject) // 속성 삭제 전.
+
+        var myObject2 =
+        {
+            myName : "Cal"
+        }
+
+        // 속성의 두 가지 접근 방법
+        console.log(myObject.myString) // 문자열 'string'이 출력된다.
+        console.log(myObject["myString"]) // 위와 같다.
+        console.log(myObject.myName) // 다른 객체를 포함했다고는 하나 실제로 myObject에 위치한 것은 아니므로 undefined가 출력된다.
+
+        // 객체 속성 삭제하기
+        delete myObject.otherObj; // delete로 삭제한다.
+        console.log(myObject) // 속성 삭제 후. 결과가 다르다.
+
+        // 객체와 배열은 다양한 타입의 데이터를 담을 수 있다. 함수도 이에 포함된다.
+        var myArray = ['string', 10, false, null, undefined];
+        console.log(myArray);
+    </script>
+</body>
+</html>

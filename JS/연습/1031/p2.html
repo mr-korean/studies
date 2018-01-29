@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체 만들기</title>
+</head>
+
+<body>
+    <script>
+        // cody 객체 만들기
+        var cody = new Object(); // 사실 var cody = {"aa":"bb"}와 같다.
+
+        // 정적인 정보를 담고 있다.
+        // 객체를 속성으로 채우기 (점 표기법 사용)
+        // 객체는 이름이 있는 값들 '속성'의 집합이다.
+        cody.living = true; // 즉 "living":"true"와 같다.
+        cody.age = 33;
+        cody.gender = 'male';
+        // 동작을 수행
+        cody.getGender = function()
+        {
+            return cody.gender
+        }
+
+        console.log(cody); // 객체를 로그에 출력 {living = true, age = 33, gender = 'male'}
+        console.log(cody.getGender()); // 객체 중 특정 요소만 불러오는 함수를 출력
+    </script>
+</body>
+
+</html>

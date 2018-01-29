@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- <body onload="show()"> -->
+<body>
+    <button id="btn">눌러봐</button>
+    <script>
+        // 화면에 버튼 요소를 하나 만들고 아이디를 hiho로 한다.
+        // 그리고 자바스크립트에서 addEventListener로 버튼을 클릭하면
+        // 메시지가 뜨게 한다.
+        // var show = function () // (1)
+
+        window.onload = function()
+        {
+            alert("hi ho");
+            // 단 이렇게 하면 1번밖에 못하며, head에서 먼저 script를 불러왔을 때
+            // 먼저 onload를 사용하면 망가질 가능성이 있음
+        }
+
+
+        // 문서 로딩이 끝나자마자 초기화하는 방법에는 두 가지가 있다.
+        // (1) <body onload="함수()">를 사용
+    </script>
+</body>
+</html>

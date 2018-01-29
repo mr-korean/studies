@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 만들기</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+    <style>
+        p,
+        button {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+        }
+
+        button {
+            width: 4em;
+            height: 2em;
+        }
+
+        #screen,
+        #operList {
+            margin: 0;
+            height: 1.5em;
+            text-align: right;
+            width: 16em;
+        }
+
+        #operList ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #operList li {
+            display: inline-block;
+            color: gray;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+<p id="operList"></p>
+<p id="screen"></p>
+<div>
+    <button type="button" data-val="D" class="btn"></button>
+    <button type="button" data-val="(" class="btn" disabled></button>
+    <button type="button" data-val=")" class="btn" disabled></button>
+    <button type="button" data-val="/" class="btn"></button>
+    <br>
+    <button type="button" data-val="7" class="btn"></button>
+    <button type="button" data-val="8" class="btn"></button>
+    <button type="button" data-val="9" class="btn"></button>
+    <button type="button" data-val="*" class="btn"></button>
+    <br>
+    <button type="button" data-val="4" class="btn"></button>
+    <button type="button" data-val="5" class="btn"></button>
+    <button type="button" data-val="6" class="btn"></button>
+    <button type="button" data-val="-" class="btn"></button>
+    <br>
+    <button type="button" data-val="1" class="btn"></button>
+    <button type="button" data-val="2" class="btn"></button>
+    <button type="button" data-val="3" class="btn"></button>
+    <button type="button" data-val="+" class="btn"></button>
+    <br>
+    <button type="button" data-val="AC" class="btn"></button>
+    <button type="button" data-val="0" class="btn"></button>
+    <button type="button" data-val="." class="btn" disabled></button>
+    <button type="button" data-val="=" class="btn"></button>
+    <br>
+</div>
+<script>
+    // 환경설정 ====================================================
+    var numbers, isResult, curStr, curSign, oldIsShgn;
+    var btns = document.querySelectorAll('.btn');
+    var elemOperList = document.getElementById('operList');
+    var elemScreen = document.getElementById('screen');
+
+
+    // 모든 요소(이미지 까지)가 다운로드 되면 실행된다.
+    window.onload = function () {
+        initCalc();
+
+        var len = btns.length;
+        for (var i = 0; i < len; i++) {
+            var btn = btns[i];
+            btn.addEventListener('click', getValue);
+        }
+    };
+
+    var initCalc = function () {
+        numbers = [];
+        curStr = "";
+        curSign = 0;
+        isResult = false;
+        oldIsShgn = false;
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].textContent = btns[i].getAttribute('data-val');
+        }
+    };
+
+    // 토들 버튼을 클릭하는 경우 대괄호를 묶어서 반환
+    var btnToggle = function (val) {
+        if (val) {
+            this.textContent = this.getAttribute('data-val');
+            return false;
+        } else {
+            this.textContent = "[" + this.getAttribute('data-val') + "]";
+            return true;
+        }
+    };
+
+    // 입력 ====================================================
+    // 입력받은 값을 배열에 저장한다.
+    var putValue = function (isSign) {
+        // 첫 입력을 구분하기 위해 numbers의 길이를 사용
+        var len = numbers.length;
+        // 처리 순서에 따로 조건문이나 처리 결과가 달라 질 수 있어 처리 순서는 중요!!
+        // push - 첫 입력, 첫기호입력
+        // update - push를 제외한 모든 숫자 입력의 경우
+        if (len === 0 || (isSign && !oldIsSign)) {
+            numbers.push(curStr);
+        } else {
+            numbers[len - 1] = curStr;
+        }
+        oldIsSign = isSign;
+    };
+
+    //  키를 입력받는다.
+    var getValue = function () {
+        var n = this.getAttribute('data-val');
+        var isSign = !isNumeric(n);
+        if (isSign) {
+            // 기호를 입력받은 경우
+            switch (n) {
+                case "-":
+                case "+":
+                case "*":
+                case "/":
+                    // 이전 입력값을 지운다.
+                    curStr = n;
+                    // 입력값은 사칙연산기호와 숫사를 입력한 경우에 등록.
+                    putValue(isSign);
+                    break;
+                case "=":
+                    // call은 함수를 호출한 객체를 바꾸어 주는 역할을 한다.
+                    // call은 변수를 apply를 배열을 인자로 전달하는 점이 다르다.
+                    isResult = btnToggle.call(this, isResult);
+                    break;
+                case "AC":
+                    initCalc();
+                    break;
+                case "D":
+                    curStr = "";
+                    numbers.pop();
+                    //backspace();
+                    break;
+            }
+        } else {
+            // 값이 0인 경우는 curStr에 0을 연결하여 반환하고
+            // 기호나 숫자가 입력되는 경우에는 기호와 숫자 사이의 0과
+            // 0으로 시작하는 숫자의 0을 제거하고 반환
+            curStr = (curStr && n !== "0") ? curStr.concat(n).replace(/^([+-/*])?0+/, "$1") : curStr.concat(n);
+            // 입력값은 사칙연산기호와 숫사를 입력한 경우에 등록.
+            putValue(isSign);
+        }
+
+        // 키가 입력될 때 마다 계산 결과를 반영한다.
+        evalShow();
+    };
+
+    // 연산 ====================================================
+    // numbers 배열을 수식(문자열)로 변환하고 계산 결과를 숫자로 반환.
+    var runCalc = function () {
+        var calcText = "";
+        for (var i = 0; i < numbers.length; i++) {
+            calcText += numbers[i];
+        }
+
+        // by moe http://morden.dk/2010/a-faster-alternative-to-eval/
+        // 만약 calcText가 '1+2*3'이라면 function (){ return 1+2+3 }이라는 객체를 만든다.
+        // var myFn  = new Function('return ' + localSum);
+        // result = myFn();
+        //
+        try {
+            result = (new Function('return ' + calcText))();
+        } catch (e) {
+            //console.log(e);
+            result = e.name;
+        }
+
+        return result;
+    };
+
+    // 출력 ====================================================
+    // evalExp()와 showOperList() 두 함수를 실행한다.
+    function evalShow() {
+        evalExp();
+        showOperList();
+    }
+
+    // 계산 결과를 화면에 보여준다.
+    var evalExp = function () {
+        // 결과보기가 활성화 되어 있는 경우 계산을 실행
+        elemScreen.textContent = (isResult) ? runCalc() : "";
+    };
+
+    // 계산 식을 화면에 보여 준다.
+    var showOperList = function () {
+        var calcHTML = "";
+        if (numbers.length > 0) {
+            calcHTML += "<ul>";
+            for (var i = 0; i < numbers.length; i++) {
+                calcHTML += "<li>";
+                calcHTML += numbers[i];
+                calcHTML += "</li>";
+            }
+            calcHTML += "</ul>";
+        }
+
+        elemOperList.innerHTML = calcHTML;
+    };
+
+    // 지원 ====================================================
+    // 현재 사용되지 않는 함수
+    var str2num = function (str) {
+        return Number(str);
+    };
+
+    // 숫자를 판단하고true / false를 반환.
+    var isNumeric = function (num) {
+        return !isNaN(parseFloat(num)) && isFinite(num);
+    };
+</script>
+</body>
+
+</html>

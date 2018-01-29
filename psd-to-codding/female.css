@@ -1,0 +1,233 @@
+/* 문서 기본 설정 */
+
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.longback {
+    position: absolute;
+    z-index: -10;
+    top: 115px;
+    width: 100%;
+    height: 245px;
+    background-color: #edeee6;
+    /* (중간메뉴 위아래의 줄은 div를 하나 더 만들어서 위아래 border와 width 100%를 적용할 것) */
+}
+
+.front-menu-outline {
+    position: absolute;
+    z-index: -10;
+    top: 360px;
+    width: 100%;
+    height: 42px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+/* 편집 영역 설정 */
+
+.screen {
+    width: 940px;
+    height: 1180px;
+    padding: 0px;
+    margin: auto;
+}
+
+
+/* 목록->링크 기본 설정 */
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    text-decoration: none;
+    display: block;
+}
+
+
+/* ================= 문서 상단 영역 ================ */
+
+header {
+    position: relative; 
+    margin: 0px;
+    height: 110px;
+    border-bottom: 5px solid #2b8ed1;
+}
+
+
+/* 로고 */
+
+header img {
+    float: left;
+    margin-top: 39px;
+}
+
+
+/* 로그인 메뉴 */
+
+.loginbox {
+    font-size: 0.8em;
+}
+
+.loginbox a {
+    color: gray;
+    margin-left: 5px;
+}
+
+
+/* 최상단 내비게이션 바 */
+
+header>nav {
+    position: absolute;
+    right:0px;
+    top:25px;   
+}
+
+.topmenu li a {
+    color: black;
+    font-size: 1.03em;
+    font-weight: bold;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-bottom: 24px;
+}
+
+/* 화면 중앙 메뉴 */
+.front-image {
+    width: 100%;
+    height: 245px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.front-menu {
+    width: 100%;
+    height: 44px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.front-menu ul {
+    margin: 0px;
+}
+
+.front-menu ul li a {
+    padding: 12px;
+    display: block;
+    color: black;
+    font-size: 0.9em;
+    border-right: 1px solid gray;
+}
+
+/* 화면 중앙 통계 */
+.subscriber {
+    position: relative;
+    height: 430px;
+    width: 100%;
+}
+
+.subscribe-title {
+    position: absolute;
+    top: 20px;
+}
+
+.graph {
+    position: absolute;
+    left: 0px;
+    top: 113px;
+}
+
+.bullshit {
+    position: absolute;
+    top: 143px;
+    right: 0px;
+    width: 389px;
+    height: 224px;
+    font-size: 0.8em;
+}
+
+/* 광고 칸 설정 */
+.ads {
+    background-color: darkkhaki;
+    position: relative;
+    width: 100%;
+    height: 203px;
+}
+
+.ads span {
+    color: white;
+    font-weight: bold;
+}
+
+.ads p {
+    color: lightgray;
+    font-size: 0.8em;
+}
+
+.ad-1, .ad-2, .ad-3 {
+    position: absolute;
+    height: 100%;
+    text-align: center;
+}
+
+.ad-1 {
+    background-color: #1fb56d;
+    width: 313px;
+}
+
+.ad-2 {
+    background-color: #2b8ed1;
+    width: 314px;
+    left: 313px;
+}
+
+.ad-3 {
+    background-color: #fb916a;
+    width: 313px;
+    left: 627px;
+}
+
+/* 주소 및 저작권 */
+footer {
+    margin-top: 58px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: 0.8em;
+    color: gray;
+}
+
+/* 플로트 클래스 & 클리어픽스 */
+.left {
+    float: left;
+}
+
+.left::after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.right {
+    float: right
+}
+
+.right::after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}

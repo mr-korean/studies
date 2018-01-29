@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>캔버스 1</title>
+</head>
+<body>
+    <canvas id="HTML5" width="300" height="300"></canvas>
+    <div>
+        <input type="button" onclick="showImage()" value="기본">
+        <input type="range" min="10" max="100" step="10" value"100" onchange="changescale(this.value)">
+    </div>
+
+    <script>
+        var c = document.getElementById("HTML5");
+        var ctx = c.getContext("2d");
+        
+        //ctx.scale(0.4,0.4);
+
+        ctx.fillStyle = "seagreen"; // 채우기 스타일(맨 위에 쓰고, fill로 마무리)
+        ctx.beginPath(); // 선 긋기 시작
+        ctx.moveTo(39,250); // 시작점(1번째 꼭지점) 설정
+        ctx.lineTo(17,0); // 2번 꼭지점까지 선 긋기
+        ctx.lineTo(262,0); // 3번 점
+        ctx.lineTo(239,250); // 4번 점
+        ctx.lineTo(139,278); // 마지막 꼭지점 (5각형이므로)
+        ctx.closePath(); // 선 긋기 끝
+        ctx.fill();
+
+        ctx.fillStyle = "mediumseagreen";
+        ctx.beginPath();
+        ctx.moveTo(139,257);
+        ctx.lineTo(220,234);
+        ctx.lineTo(239,20);
+        ctx.lineTo(139,20);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "#EBEBEB";
+        ctx.beginPath();
+        ctx.moveTo(139,113);
+        ctx.lineTo(98,113);
+        ctx.lineTo(96,82);
+        ctx.lineTo(139,82);
+        ctx.lineTo(139,51);
+        ctx.lineTo(62,51);
+        ctx.lineTo(70,144);
+        ctx.lineTo(139,144);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(139,193);
+        ctx.lineTo(105,184);
+        ctx.lineTo(103,159);
+        ctx.lineTo(72,159);
+        ctx.lineTo(76,207);
+        ctx.lineTo(139,225);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.moveTo(139,113);
+        ctx.lineTo(139,144);
+        ctx.lineTo(177,144);
+        ctx.lineTo(173,184);
+        ctx.lineTo(139,193);
+        ctx.lineTo(139,225);
+        ctx.lineTo(202,207);
+        ctx.lineTo(210,113);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(139,51);
+        ctx.lineTo(139,82);
+        ctx.lineTo(213,82);
+        ctx.lineTo(216,51);
+        ctx.closePath();
+        ctx.fill();
+
+function showImage() {
+        // ctx.drawImage(c,10,10);
+        ctx.scale(0.99,0.99);
+        ctx.drawImage(c,10,10);
+}
+    </script>
+</body>
+</html>

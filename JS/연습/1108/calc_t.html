@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var add = {name: "add"};
+        var sub = {name: "sub"};
+        var mul = {name: "mul"};
+        var div = {name: "div"};
+        var calc = {
+            runCalc: function() {
+                var result = 0;
+                var x = arguments[0];
+                var y = arguments[1];
+                switch(this.name) {
+                    case "add": 
+                        this.result = x + y;
+                        break;
+                    case "sub":
+                        this.result = x - y;
+                        break;
+                    case "mul":
+                        this.result = x * y;
+                        break;
+                    case "div":
+                        this.result = x / y;
+                        break;
+                    default: 
+                        break;
+                }
+                console.log(this.result);
+            }
+        }
+
+        calc.runCalc.call(add,10,2);
+        calc.runCalc.call(sub,10,2);
+        calc.runCalc.call(mul,10,2);
+        calc.runCalc.call(div,10,2);
+
+    </script>
+</body>
+</html>

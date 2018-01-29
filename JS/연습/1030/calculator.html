@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기</title>
+    <style>
+        body {box-sizing: border-box;}
+        table, input
+            {
+                border: 2px solid black;
+                text-align:center;
+                font-size:1.2em;
+                margin: 0px;
+                background-color: dimgray;
+            }
+        th {height: 50px;}
+        input
+            {
+                width: 72px;
+                padding: 20px;
+                background-color: navy;
+                color: white;
+            }
+        #showresult {width: 85%; background-color:green;text-align:right}
+        #but0 {padding: 20px 72px;}
+        #submit {padding: 10px 150px;background-color:maroon;}
+    </style>
+</head>
+<body>
+    <form name="calculator">
+    <table>
+        <tr>
+            <th colspan="4"><input type="text" id="showresult" maxlength="16" disabled readonly></th>
+        </tr>
+        <tr>
+            <td><input type="button" value="←" id="buterase" onclick="Delete1()"></td>
+            <td><input type="button" value="C" id="buteraseall" onclick="DeleteAll()"></td>
+            <td><input type="button" value="(" id="butopenparent" onclick="Push('(')"></td>
+            <td><input type="button" value=")" id="butcloseparent" onclick="Push(')')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" id="but7" onclick="Push('7')"></td>
+            <td><input type="button" value="8" id="but8" onclick="Push('8')"></td>
+            <td><input type="button" value="9" id="but9" onclick="Push('9')"></td>
+            <td><input type="button" value="/" id="butdivide" onclick="Push('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" id="but4" onclick="Push('4')"></td>
+            <td><input type="button" value="5" id="but5" onclick="Push('5')"></td>
+            <td><input type="button" value="6" id="but6" onclick="Push('6')"></td>
+            <td><input type="button" value="*" id="butmulti" onclick="Push('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" id="but1" onclick="Push('1')"></td>
+            <td><input type="button" value="2" id="but2" onclick="Push('2')"></td>
+            <td><input type="button" value="3" id="but3" onclick="Push('3')"></td>
+            <td><input type="button" value="-" id="butminus" onclick="Push('-')"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="0" id="but0" onclick="Push('0')"></td>
+            <td><input type="button" value="." id="butdot" onclick="Push('.')"></td>
+            <td><input type="button" value="+" id="butplus" onclick="Push('+')"></td>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="button" value="=" id="submit" onclick="getResult()"></td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        // (1) 각 버튼을 누르면 숫자나 기호가 표시됨
+        function Push(num)
+        {
+            calculator.showresult.value += num;
+        }
+
+        // (2) ←를 누르면 하나만 지우고, C를 누르면 전부 지움
+        function Delete1()
+        {
+            calculator.showresult.value = calculator.showresult.value.substring(0, calculator.showresult.value.length-1)
+        }
+        function DeleteAll()
+        {
+            calculator.showresult.value = "";
+        }
+
+        // (3) =를 누르면 현재 결과창의 내용을 가져와서 계산한 후 다시 출력
+        function getResult()
+        {
+            try
+            {
+                calculator.showresult.value = eval(document.calculator.showresult.value)
+            }
+            catch(e){alert('계산 오류')}
+        }
+    </script>
+</body>
+</html>

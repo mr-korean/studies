@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>박스 만들기(포지션)</title>
+    <style>
+        /* 공통 */
+        body {margin:0;}
+        div {box-sizing:border-box;}
+        /* 개별스타일 */
+        .warehouse {width:904px; margin: auto;}
+        .floor {position: relative;margin:auto;}
+
+        
+        .room {border: 1px solid blue; width:288px; height:288px; position:absolute;}
+        /* 1층~3층마다 있는 3개의 방을 의미한다. x는 x축, y는 y축. */
+        .roomx1 {left:0px;}
+        .roomx2 {left:308px;}
+        .roomx3 {left:616px;}
+        .roomy1 {top:0px;}
+        .roomy2 {top:308px;}
+        .roomy3 {top:616px;}
+
+        /* 방 안 박스의 기본 설정 */
+        .floor div div {border: 1px solid green;}
+
+        /* 박스의 좌표 설정 (left는 x축, top은 y축) */
+        .boxx1 {left:20px;}
+        .boxx2 {left:106px;}
+        .boxx3 {left:192px;}
+        .boxy1 {top:20px;}
+        .boxy2 {top:106px;}
+        .boxy3 {top:192px;}
+
+        /* 작은 박스들의 크기 설정*/
+        .smallx {width:76px; position:absolute;}
+        .smally {height:76px; position:absolute;}
+
+        /* 중간 박스의 크기 설정 */
+        .midx {width:162px; position:absolute;}
+        .midy {height:162px; position:absolute;}
+
+        /* 큰 박스들의 크기와 좌표 설정 */
+        .bigx {width:248px; position:absolute;}
+        .bigy {height:248px; position:absolute;}
+
+        /* 박스 포장지 색깔 */
+        .blackbox {background-color:black;color:white;text-align:center;}
+        .graybox {background-color:silver;text-align:center;}
+
+        /* ※ left와 top 등은 거리 개념이라 상관이 없지만, width와 height는 position의 영향을 받는다. */
+
+    </style>
+</head>
+<body>
+    <div class="warehouse">
+        <div class="floor">
+            <div class="room roomx1"> <!-- 1층 1번째 방 -->
+                    <div class="smallx smally boxx1 boxy1 blackbox">Box1-1</div>
+                    <div class="smallx smally boxx2 boxy1 blackbox">Box1-2</div>
+                    <div class="smallx smally boxx3 boxy1 blackbox">Box1-3</div>
+                    <div class="smallx smally boxx1 boxy2 blackbox">Box2-1</div>
+                    <div class="smallx smally boxx2 boxy2 blackbox">Box2-2</div>
+                    <div class="smallx smally boxx3 boxy2 blackbox">Box2-3</div>
+                    <div class="smallx smally boxx1 boxy3 blackbox">Box3-1</div>
+                    <div class="smallx smally boxx2 boxy3 blackbox">Box3-2</div>
+                    <div class="smallx smally boxx3 boxy3 blackbox">Box3-3</div>
+            </div>
+
+            <div class="room roomx2"> <!-- 1층 2번째 방 -->
+                <div class="bigx midy boxx1 boxy1 blackbox">Box2-1</div>
+                <div class="smallx smally boxx1 boxy3 graybox">Box2-2</div>
+            </div>
+
+            <div class="room roomx3"> <!-- 1층 3번째 방 -->
+                <div class="midx smally boxx1 boxy1 blackbox">Box3-1</div>
+                <div class="smallx smally boxx3 boxy1 blackbox">Box3-2</div>
+                <div class="smallx smally boxx3 boxy3 graybox">Box3-3</div>
+            </div>
+
+            <div class="room roomx1 roomy2"> <!-- 2층 1번째 방 -->
+                <div class="bigx smally boxx1 boxy1 blackbox">Box4-1</div>
+                <div class="smallx midy boxx1 boxy2 graybox">Box4-2</div>
+                <div class="smallx midy boxx2 boxy2 graybox">Box4-3</div>
+                <div class="smallx midy boxx3 boxy2 graybox">Box4-4</div>
+            </div>
+
+            <div class="room roomx2 roomy2"> <!-- 2층 2번째 방 -->
+                <div class="smallx smally boxx1 boxy1 blackbox">Box5-1</div>
+                <div class="smallx smally boxx2 boxy1 blackbox">Box5-2</div>
+                <div class="smallx smally boxx3 boxy1 graybox">Box5-3</div>
+                <div class="smallx smally boxx1 boxy2 blackbox">Box5-4</div>
+                <div class="smallx smally boxx2 boxy2 blackbox">Box5-5</div>
+                <div class="smallx smally boxx3 boxy2 graybox">Box5-6</div>
+                <div class="smallx smally boxx3 boxy3 graybox">Box5-7</div>
+            </div>
+
+            <div class="room roomx3 roomy2"> <!-- 2층 3번째 방 -->
+                <div class="midx midy boxx1 boxy2 blackbox">Box6-1</div>
+                <div class="smallx smally boxx3 boxy2 graybox">Box6-2</div>
+            </div>
+
+            <div class="room roomx1 roomy3"> <!-- 3층 1번째 방 -->
+                <div class="midx smally boxx1 boxy1 blackbox">Box7-1</div>
+                <div class="smallx smally boxx3 boxy1 blackbox">Box7-2</div>
+                <div class="midx midy boxx1 boxy2 graybox">Box7-3</div>
+                <div class="smallx midy boxx3 boxy2 graybox">Box7-4</div>
+            </div>
+
+            <div class="room roomx2 roomy3"> <!-- 3층 2번째 방 -->
+                <div class="smallx midy boxx1 boxy1 blackbox">Box8-1</div>
+                <div class="smallx midy boxx2 boxy1 blackbox">Box8-2</div>
+                <div class="smallx midy boxx3 boxy1 blackbox">Box8-3</div>
+                <div class="midx smally boxx1 boxy3 graybox">Box8-4</div>
+                <div class="smallx smally boxx3 boxy3 graybox">Box8-5</div>
+            </div>
+
+            <div class="room roomx3 roomy3"> <!-- 3층 3번째 방 -->
+                <div class="midx midy boxx1 boxy1 blackbox">Box9-1</div>
+                <div class="smallx smally boxx2 boxy3 graybox">Box9-2</div>
+                <div class="smallx midy boxx3 boxy2 graybox">Box9-3</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

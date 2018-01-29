@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>인스턴스에 인스턴스 속성 추가</title>
+</head>
+<body>
+    <script>
+        var store = function (brand, item)
+        {
+            this.brand = brand;
+            this.item = item;
+            // this를 통해 이 함수의 메소드임을 명확히 쓴다. (괜히 store.brand라고 써봤자 작동 안 한다)
+        }
+
+        var str1 = new store("woojoo", ["prod1", "prod2"])
+        // str1.brand = "woojoo";
+        // str1.item = ["prod1", "prod2"];
+        // 이렇게 각 메소드에 내용을 일일이 대입해도 된다. (취향 따라 선택)
+        var str2 = new store('jeonju', ['prod1', 'prod3'])
+        // str2.brand = 'jeonju';
+        // str2.item = ['prod1', 'prod3'];
+        str2.service = "delivery";
+        console.log(str1 instanceof store);
+        console.log(str2 instanceof store);
+        console.log(str1.constructor);
+        console.log(str1.brand);
+        console.log(str1.item);
+        console.log(str1);
+        console.log(str2);
+    </script>
+</body>
+</html>

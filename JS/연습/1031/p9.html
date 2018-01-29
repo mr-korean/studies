@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // living, age, gender, getGender()를 가지는 Person 생성자를 만들어 보자.
+        var Person = function (living, age, gender)
+        {
+            // 아래의 this는 새롭게 작성된 객체(this = new Object();)를 뜻한다.
+            this.living = living;
+            this.age = age;
+            this.gender = gender; // Person()의 괄호 안에 입력한 값을 그대로 받아 메소드로 사용한다.
+            this.getGender = function()
+            {
+                return this.gender; // getGender 메소드를 사용하면 입력한 gender 값을 출력한다.
+            }
+        }
+
+        // Person 객체의 인스턴스(생성자를 통해 만든 객체)를 만들어 cody에 저장한다.
+        var cody = new Person(true, 33, 'male');
+
+        // cody는 Person()의 객체이자 인스턴스다.
+        console.log(typeof cody); // object
+        console.log(cody); // 속성과 값들
+        console.log(cody.constructor); // Person() // 객체를 만들게 되면 기본적으로 브라우저에 있는 Object의 속성을 가져오므로,
+        // 즉 실제로 만들지 않았더라도 몇몇 속성과 메소드를 가져와 쓸 수 있다.
+        console.log(cody.getGender()) // "male"
+
+    </script>
+</body>
+</html>

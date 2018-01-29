@@ -1,0 +1,106 @@
+/* 사이트 배경 */
+
+body {
+    width: 1280px;
+    height: 1024px;
+    background-image: url("Holmes.jpg");
+    box-sizing: border-box;
+    display: inline-block;
+    margin: auto;
+}
+
+
+/* 각 페이지 최상단 제목 */
+
+.pagetitle {
+    background-color: wheat;
+    text-align: center;
+    border: 3px dashed sienna;
+    outline: 3px dashed burlywood;
+    display: inline-block;
+}
+
+/* 사이트 메뉴 속성 */
+
+header {
+    float: left;
+    background-color: tan;
+    /* 영역 확인용 색깔 */
+}
+
+header nav ul {
+    padding-left: 0px;
+}
+
+header nav ul li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+header nav ul li a {
+    padding: 3px 20px 3px 20px;
+    border: 1px solid brown;
+}
+
+header nav::before,
+header nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* 화면 하단 연락처 메뉴(나중에 화면 오른쪽으로 옮길 것) */
+
+aside nav ul {
+    padding-left: 0;
+}
+
+aside nav ul li {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+aside nav ul li a {
+    padding: 3px 10px 3px 10px;
+    border: 1px solid brown;
+}
+
+aside nav::before,
+aside nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+footer {
+    margin-top: 10px;
+    background-color: white;
+    border-style: dashed;
+    text-align: center;
+}
+
+address {
+    margin-top: 10px;
+    background-color: pink;
+    border-style: dashed;
+    text-align: right;
+    font-style: italic;
+    color: red;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

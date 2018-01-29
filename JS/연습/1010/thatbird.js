@@ -1,0 +1,1 @@
+console.log('저 새는')

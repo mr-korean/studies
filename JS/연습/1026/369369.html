@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>369 369 369 369</p>
+    <p id="demo"></p>
+    <script>
+        // (1) number는 1씩 계속 증가하게 한다.
+        // (2) 일자리가 3, 6, 9일 때마다 박수를 치는 함수 claps()를 만든다.
+
+        for (i = 1; i < 101; i++)
+        {
+            var claps = i.toString()
+            if (claps.indexOf("3") >= 0)
+            {
+                document.getElementById('demo').innerHTML += " <font style='color:blue;'>짝</font> /";
+            }
+            else if (claps.indexOf("6") >= 0)
+            {
+                document.getElementById('demo').innerHTML += " <font style='color:red;'>짝</font> /";
+            }
+            else if (claps.indexOf("9") >= 0)
+            {
+                document.getElementById('demo').innerHTML += " <font style='color:green;'>짝</font> /";
+            }
+            else
+            {
+                document.getElementById('demo').innerHTML += " " + i + " /";
+            }
+        }
+    </script>
+</body>
+</html>

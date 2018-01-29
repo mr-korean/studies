@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>학점</title>
+</head>
+
+<body>
+
+    <canvas id="Y" width="500" height="500" style="border:3px solid black;"></canvas>
+    <canvas id="M" width="500" height="500" style="border:3px solid black;"></canvas>
+    <canvas id="C" width="500" height="500" style="border:3px solid black;"></canvas>
+    <canvas id="A" width="500" height="500" style="border:3px solid black;"></canvas>
+
+    <script>
+        var c = document.getElementById("Y");
+        var failed = c.getContext("2d");
+        failed.moveTo(0, 0);
+        failed.lineTo(125, 0);
+        failed.lineTo(250, 250);
+        failed.lineTo(375, 0);
+        failed.lineTo(500, 0);
+        failed.lineTo(500, 125);
+        failed.lineTo(375, 350);
+        failed.lineTo(375, 500);
+        failed.lineTo(125, 500);
+        failed.lineTo(125, 350);
+        failed.lineTo(0, 125);
+        failed.lineTo(0, 0);
+        failed.stroke();
+    </script>
+    <script>
+        var c = document.getElementById("M");
+        var failed = c.getContext("2d");
+        failed.moveTo(0, 0);
+        failed.lineTo(125, 0);
+        failed.lineTo(250, 250);
+        failed.lineTo(375, 0);
+        failed.lineTo(500, 0);
+        failed.lineTo(500, 500);
+        failed.lineTo(375, 500);
+        failed.lineTo(375, 350);
+        failed.lineTo(250, 500);
+        failed.lineTo(125, 350);
+        failed.lineTo(125, 500);
+        failed.lineTo(0, 500);
+        failed.lineTo(0, 0);
+        failed.stroke();
+    </script>
+    <script>
+        var c = document.getElementById("C");
+        var failed = c.getContext("2d");
+        failed.moveTo(0, 0);
+        failed.lineTo(500, 0);
+        failed.lineTo(500, 100);
+        failed.lineTo(100, 100);
+        failed.lineTo(100, 400);
+        failed.lineTo(500, 400);
+        failed.lineTo(500, 500);
+        failed.lineTo(0, 500);
+        failed.lineTo(0, 0);
+        failed.stroke();
+    </script>
+    <script>
+        var c = document.getElementById("A");
+        var failed = c.getContext("2d");
+        failed.moveTo(0, 0);
+        failed.lineTo(500, 0);
+        failed.lineTo(500, 100);
+        failed.lineTo(100, 100);
+        failed.lineTo(100, 200);
+        failed.lineTo(500, 200);
+        failed.lineTo(500, 300);
+        failed.lineTo(100, 300);
+        failed.lineTo(100, 500);
+        failed.lineTo(0, 500);
+        failed.lineTo(0, 0);
+        failed.stroke();
+    </script>
+</body>
+
+</html>

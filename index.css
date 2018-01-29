@@ -1,0 +1,108 @@
+body {
+    box-sizing: border-box;
+}
+
+/* 사각형 링크 표 만들기 */
+
+.squarelist {
+    margin-left: 0px;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.squarelist li {
+    display: inline-block;
+    /* inline-block으로 해야 float 없이 다른 버튼들이 자동으로 따라붙는다. */
+    margin: 5px;
+    text-align: center;
+    width: 150px;
+    height: 100px;
+}
+
+.squarelist li a,
+.squarelist li del {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block; */
+    /* 위의 속성값은 텍스트'만' 중앙으로 보낼 뿐 링크를 넓히진 못한다. */
+    width: 150px;
+    height: 100px;
+    /* 정확히는, block으로 해야 링크 영역이 빈틈없이 생긴다. */
+}
+
+/* 8월 꾸미기 */
+
+.august li {
+    border: 1px solid #888801; background-color: #fcfc63;
+}
+
+.august li a, .august li del {
+    color: #888801;
+}
+
+.august li a:active, .august li del:active {
+    background-color: #4a5100; color: #bec571;
+}
+
+/* 9월 꾸미기 */
+
+.september li {
+    border: 1px solid blue; background-color: skyblue;
+}
+
+.september li a, .september li del {
+    color: blue;
+}
+
+.september li a:active, .september li del:active {
+    background-color: aquamarine; color: teal;
+}
+
+/* 10월 꾸미기 */
+
+.october li {
+    border: 1px solid deeppink; background-color: pink;
+}
+
+.october li a, .october li del {
+    color: deeppink;
+}
+
+.october li a:active, .october li del:active {
+    background-color: #e17ffa; color: #7100c7;
+}
+
+/* 11월 꾸미기 */
+.november li {
+    border: 1px solid forestgreen; background-color: palegreen;
+}
+
+.november li a, .november li del {
+    color: forestgreen;
+}
+
+.november li a:active, .november li del:active {
+    background-color: #024200; color: #07ea00;
+}
+
+/* 클리어픽스 시스템 */
+
+.left {
+    float: left;
+}
+
+.left::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}

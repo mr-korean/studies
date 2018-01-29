@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>동물원</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #effffb;
+            overflow: visible;
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            /* 메뉴 관련 태그 대통합 */
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* ------------ 상단 수평 메뉴 - 디자인 속성 ------------ */
+
+        .topmenu {
+            /* 상단 메뉴 배경 */
+            text-align: center;
+            position: fixed;
+            color: white;
+            background-color: black;
+            top: 0px;
+            width: 100%;
+            height: 45px;
+            z-index: 5;
+        }
+
+        .topmenu li {
+            /* 메뉴 버튼 영역 */
+            position: relative;
+            float: left;
+        }
+
+        .topdropbtn li:last-child,
+        .leftdropbtn li:last-child {
+            border-bottom: 2px solid red;
+        }
+
+        .topmenu>li:nth-last-child(1) {
+            float: right;
+            right: 49px;
+        }
+
+        .topmenu li a {
+            /* 메뉴 글자 효과(상단메뉴) */
+            display: inline-block;
+            /* 블록 (<-> 인라인) */
+            padding: 12px 30px;
+            /* padding의 경우 상단 본메뉴의 높이를 고려할 것. */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .topmenu li a:hover {
+            background-color: green;
+        }
+        
+        .topdropmenu li a {
+            /* 상단 하위메뉴 속성(본 메뉴보다는 적당히 크게) */
+            padding: 10px;
+            min-width: 130px;
+        }
+
+        .leftmenu {
+            /* 좌측 메뉴 배경 */
+            text-align: center;
+            position: fixed;
+            overflow: visible;
+            color: white;
+            background-color: darkslategray;
+            top: 45px;
+            height: 100%;
+            width: 200px;
+            z-index: 2;
+        }
+
+        .leftmenu li a {
+            /* 메뉴 글자 효과(좌측메뉴) */
+            display: block;
+            padding: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            min-width: 160px;
+        }
+
+        .leftdropmenu li a {
+            padding: 10px;
+        }
+
+        .leftmenu li a:hover {
+            background-color: blue;
+        }
+        /* ------------------- 드롭다운 시스템 --------------------- */
+
+        .leftdropbtn {
+            position: relative;
+        }
+
+        .topdropmenu,
+        .leftdropmenu {
+            position: absolute;
+            background-color: black;
+            display: none;
+            box-shadow: 0px 9px 17px 2px rgba(0, 0, 0, 0.25);
+        }
+
+        .topdropbtn:hover .topdropmenu {
+            /* topdropbtn에 마우스를 올리면, topdropmenu(ul, 목록 자체)가 나타나게 하는 트리거(?) */
+            top: 45px;
+            display: block;
+            /* display가 none에서 block으로 바뀌면서 나타난다. */
+        }
+
+        .leftdropbtn:hover .leftdropmenu {
+            top: 0px;
+            left: 200px;
+            display: block;
+        }
+        /* -------------------- 본문 표시 영역 -------------------- */
+
+        .main {
+            /* 영역과 메뉴 겹치지 않게 이동 */
+            margin-top: 45px;
+            margin-left: 200px;
+            padding: 10px;
+            float: left;
+        }
+
+        .image {
+            /* 이미지가 없는 칸 숫자 텍스트 */
+            border: 1px solid black;
+            text-align: center;
+            font-size: 3em;
+            width: 160px;
+            height: 200px;
+            line-height: 2em;
+            margin: 5px;
+            float: left;
+        }
+
+        .main section {
+            float: left;
+        }
+        /* ----------------- 좌하단 광고 영역 ------------- */
+
+        aside {
+            position: fixed;
+            background-color: #ccfff5;
+            width: 200px;
+            left: 0px;
+            bottom: 0px;
+            z-index: 2033;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="topmenu">
+                <!-- 최상단 메뉴 영역 -->
+                <li><a href="index.html">홈</a></li>
+                <li class="topdropbtn"><a href="#">메뉴1</a>
+                    <ul class="topdropmenu">
+                        <li><a href="">메뉴1-1</a></li>
+                        <li><a href="">메뉴1-2</a></li>
+                        <li><a href="">메뉴1-3</a></li>
+                    </ul>
+                </li>
+                <li class="topdropbtn"><a href="#">메뉴2</a>
+                    <ul class="topdropmenu">
+                        <li><a href="">메뉴2-1</a></li>
+                        <li><a href="">메뉴2-2</a></li>
+                        <li><a href="">메뉴2-3</a></li>
+                    </ul>
+                </li>
+                <li class="topdropbtn"><a href="#">메뉴3</a>
+                    <ul class="topdropmenu">
+                        <li><a href="">메뉴3-1</a></li>
+                        <li><a href="">메뉴3-2</a></li>
+                        <li><a href="">메뉴3-3</a></li>
+                    </ul>
+                </li>
+                <li class="topdropbtn"><a href="#">메뉴4</a>
+                    <ul class="topdropmenu">
+                        <li><a href="">메뉴4-1</a></li>
+                        <li><a href="">메뉴4-2</a></li>
+                        <li><a href="">메뉴4-3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <nav>
+            <ul class="leftmenu">
+                <!-- 좌측 메뉴 영역 -->
+                <li class="leftdropbtn"><a href="#">서브메뉴1</a>
+                    <ul class="leftdropmenu">
+                        <li><a href="#">서브메뉴1-1</a></li>
+                        <li><a href="#">서브메뉴1-2</a></li>
+                        <li><a href="#">서브메뉴1-3</a></li>
+                    </ul>
+                </li>
+                <li class="leftdropbtn"><a href="#">서브메뉴2</a>
+                    <ul class="leftdropmenu">
+                        <li><a href="#">서브메뉴2-1</a></li>
+                        <li><a href="#">서브메뉴2-2</a></li>
+                        <li><a href="#">서브메뉴2-3</a></li>
+                    </ul>
+                </li>
+                <li class="leftdropbtn"><a href="#">서브메뉴3</a>
+                    <ul class="leftdropmenu">
+                        <li><a href="#">서브메뉴3-1</a></li>
+                        <li><a href="#">서브메뉴3-2</a></li>
+                        <li><a href="#">서브메뉴3-3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <section class="main">
+        <!-- 본문 출력 영역 -->
+        <h1>동물원</h1>
+        <section style="width:100%;">
+            <h1>갤러리</h1>
+            <div class="image">
+                <p>1</p>
+            </div>
+            <div class="image"><img src=""></div>
+            <div class="image"><img src=""></div>
+            <div class="image"><img src=""></div>
+            <div class="image">
+                <p>5</p>
+            </div>
+        </section>
+        <section>
+            <h1>공지사항</h1>
+            <section style="width:50%;">
+                <h1>개장안내</h1>
+                <ul>
+                    <li>역사를 작고 굳세게 것이다.</li>
+                    <li>없는 별과 위하여서 아니한 얼음이</li>
+                    <li>이상은 우리 얼음과 못하다 그리하였는가?</li>
+                    <li>쓸쓸한 그들의 보배를 있으며, 위하여 얼마나</li>
+                    <li>위하여 이것이다. 소리다.이것은 없으면,</li>
+                </ul>
+            </section>
+            <section style="width:50%;">
+                <h1>이벤트/행사</h1>
+                <ul>
+                    <li>역사를 작고 굳세게 것이다.</li>
+                    <li>없는 별과 위하여서 아니한 얼음이</li>
+                    <li>이상은 우리 얼음과 못하다 그리하였는가?</li>
+                    <li>쓸쓸한 그들의 보배를 있으며, 위하여 얼마나</li>
+                    <li>위하여 이것이다. 소리다.이것은 없으면,</li>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <aside>
+        <!-- 광고 영역 -->
+        광고영역입니다. 문의: <br>ad@nanum.korea
+    </aside>
+</body>
+
+</html>

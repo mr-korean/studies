@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>compare</title>
+    </head>
+<body>
+
+<p>비교용</p>
+
+<p id="demo"></p>
+<button type="button" onclick="change2014()">2014</button>
+<button type="button" onclick="change2015()">2015</button>
+<button type="button" onclick="change2016()">2016</button>
+
+<script>
+var name = "";
+var jar = [2017, 2, "jar"]
+var hrk = [2017, 8, "hrk"]
+var jjk = [2014, 6, "jjk"]
+var jsh = [2016, 5, "jsh"]
+var kks = [2014, 4, "kks"]
+var compare = 2016;
+var company = [jar[0], hrk[0], jjk[0], jsh[0], kks[0]];
+var company2 = [jar[1], hrk[1], jjk[1], jsh[1], kks[1]];
+var company3 = [jar[2], hrk[2], jjk[2], jsh[2], kks[2]];
+for (var i = 0; i < 5; i++){
+	if (company[i] >= compare){
+ 		name = name + company3[i] + " " + company[i] + "-" + company2[i] + "<br>";
+	}
+}
+document.getElementById("demo").innerHTML = name;
+function change2014() {
+    name = "";
+    compare = 2014;
+    for (var i = 0; i < 5; i++){
+	    if (company[i] >= compare){
+ 		    name = name + company3[i] + " " + company[i] + "-" + company2[i] + "<br>";
+	    }
+    }
+    document.getElementById("demo").innerHTML = name;
+}
+function change2015() {
+    name = "";
+    compare = 2015;
+    for (var i = 0; i < 5; i++){
+	    if (company[i] >= compare){
+ 		    name = name + company3[i] + " " + company[i] + "-" + company2[i] + "<br>";
+	    }
+    }
+    document.getElementById("demo").innerHTML = name;
+}
+function change2016() {
+    name = "";
+    compare = 2016;
+    for (var i = 0; i < 5; i++){
+	    if (company[i] >= compare){
+ 		    name = name + company3[i] + " " + company[i] + "-" + company2[i] + "<br>";
+	    }
+    }
+    document.getElementById("demo").innerHTML = name;
+}
+</script>
+
+</body>

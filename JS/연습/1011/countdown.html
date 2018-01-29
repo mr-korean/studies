@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>제목</h1>
+<h2>부제목</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+    <div style="color:red; background-color:black; text-align:center; width:600px;margin:0 auto;padding:20px 80px;font-family:DS-DIGI;">
+        <span style="font-size:2em;">오늘도 무사히</span><br>
+        <span id="timebomb" style="font-size:5em;"></span>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div style="background-color: black; color: lime; width:400px; padding:20px 80px; margin:0 auto; text-align: center; font-size:2em;">
+        생일까지<br><span id="birthday"></span>일 <span id="birthhour"></span>시간 <span id="birthmin"></span>분 <span id="birthsec"></span>초<br>
+        <span style="color:forestgreen;font-size:0.5em;">Never Mind!</span>
+    </div>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+    var countdown = function(due)
+    {
+        var now = new Date();
+
+        var rest = due.getTime() - now.getTime();
+        var sec = Math.floor(rest / 1000 % 60)
+        var min = Math.floor(rest / 1000 / 60) % 60
+        var hours = Math.floor(rest / 1000 / 60 / 60) % 24
+        var days = Math.floor(rest / 1000 / 60 / 60 / 24)
+        var count = [days, hours, min, sec]
+
+        return count
+    }
+
+    var goal = new Date();
+    goal.setHours(23)
+    goal.setMinutes(59)
+    goal.setSeconds(59)
+
+    console.log(countdown(goal))
+    var recalculator = function()
+    {
+    var counter = countdown(goal)
+    var timeleft = counter[1] + ':' + counter[2] + ':' + counter[3]
+    document.getElementById('timebomb').textContent = timeleft
+    refresh()
+    }
+
+    var refresh = function()
+    {setTimeout(recalculator, 1000)}
+    recalculator()
+
+// ======================================================================
+
+    var birthgoal = new Date(2017, 10, 15)
+    var birthrecalcul = function()
+    {
+        var counter = countdown(birthgoal)
+        document.getElementById('birthday').textContent = counter[0]
+        document.getElementById('birthhour').textContent = counter[1]
+        document.getElementById('birthmin').textContent = counter[2]
+        document.getElementById('birthsec').textContent = counter[3]
+        birthrefresh();
+    }
+    var birthrefresh = function()
+    {setTimeout(birthrecalcul, 1000)}
+    birthrecalcul()
+</script>
+</body>
+</html>

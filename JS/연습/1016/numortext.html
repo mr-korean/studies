@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="nemo"></p>
+    <script>
+        var num = window.prompt('숫자를 입력하세요.');
+        var typeNum = typeof parseInt(num);
+        // parseInt는 prompt에서 문자열로 입력된 숫자를
+        // 받아온 매개변수를 정수로 바꿔준다.
+        if (typeNum == 'number')
+        {document.getElementById('nemo').innerHTML = '숫자를 입력하셨습니다. 잘하셨습니다.'}
+        else if (typeNum == 'string')
+        {document.getElementById('nemo').innerHTML = '문자를 입력하셨습니다. 숫자를 입력해 주세요.'}
+        else
+        {document.getElementById('nemo').innerHTML = '아무것도 입력하지 않으셨습니다. 숫자를 입력해 주세요.'}
+    </script>
+</body>
+</html>

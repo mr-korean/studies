@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // "new" 키워드를 사용하지 않고 원시값을 만들면 객체가 만들어지지 않는다.
+        // 아래는 잘못된 예시이며, 올바르게 사용하려면 new String("텍스트")로 하면 된다.
+        var primitiveString1 = "foo";
+        var primitiveString2 = String("foo");
+        var primitiveNumber1 = 10;
+        var primitiveNumber2 = Number("10");
+        var primitiveBoolean1 = true;
+        var primitiveBoolean2 = Boolean("true");
+
+        // typeof 연산자를 사용해 확인하기
+        // 예) typeof primitiveValue1 = "string"이 나온다.
+
+        // new 키워드를 사용해 만든 객체와 비교하기
+        console.log(typeof primitiveString2, new String("foo"))
+        // 각각 "string"과 "object"가 나온다.
+
+        // 원시값은 객체가 아니라 단순한 값의 표현이다.
+        // 객체에 대해서는 일단 '타입'으로 구분하여 공부하는 것이 편하다. (객체의 종류는 너무 많아서 정의내리기가 아직은 이르다)
+    </script>
+</body>
+</html>

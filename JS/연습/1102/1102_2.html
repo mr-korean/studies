@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+    <style>
+        p,
+        button {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5em;
+        }
+
+        button {
+            width: 2em;
+        }
+
+        #screen {
+            margin: 0;
+            height: 1.5em;
+        }
+    </style>
+</head>
+
+<body onload="initCalc()">
+    <p id="screen"></p>
+    <div>
+        <button type="button" data-val="del" class="btn" disabled>D</button>
+        <button type="button" data-val="(" class="btn" disabled>(</button>
+        <button type="button" data-val=")" class="btn" disabled>)</button>
+        <button type="button" data-val="/" class="btn" disabled>/</button>
+        <br>
+        <button type="button" data-val="7" class="btn">7</button>
+        <button type="button" data-val="8" class="btn">8</button>
+        <button type="button" data-val="9" class="btn">9</button>
+        <button type="button" data-val="*" class="btn" disabled>*</button>
+        <br>
+        <button type="button" data-val="4" class="btn">4</button>
+        <button type="button" data-val="5" class="btn">5</button>
+        <button type="button" data-val="6" class="btn">6</button>
+        <button type="button" data-val="+" class="btn">+</button>
+        <br>
+        <button type="button" data-val="1" class="btn">1</button>
+        <button type="button" data-val="2" class="btn">2</button>
+        <button type="button" data-val="3" class="btn">3</button>
+        <button type="button" data-val="-" class="btn">-</button>
+        <br>
+        <button type="button" data-val="reset" class="btn" disabled>C</button>
+        <button type="button" data-val="0" class="btn">0</button>
+        <button type="button" data-val="00" class="btn" disabled>00</button>
+        <button type="button" data-val="=" class="btn">=</button>
+    </div>
+    <script>
+        // 환경설정
+        var numbers, result, curStr, curSign;
+
+        var initCalc = function () {
+            numbers = [];
+            curStr = "";
+            curSign = null;
+
+            var btns = document.querySelectorAll('.btn');
+            var len = btns.length;
+            for (var i = 0; i < len; i++) {
+                var btn = btns[i];
+                btn.addEventListener('click', getValue);
+            }
+        }
+
+
+        // 입력
+        var getValue = function () {
+            var n = this.getAttribute('data-val');
+            console.log(n);
+            // 사용자는 입력을 계속 합니다. 숫자들.....
+            // 그러다가 가끔 "+"입력합니다.
+            // 앞서 코딩에서 if (n === "+")이 참인 경우 아래 코드를 수행했음.
+            // isNumeric(n) 함수는 n이 숫자이면 참을 반환, 숫자가 아니면 거짓을 반환하기 때문에 +,-,*,/,=기로는 false를 반환한다. 따라서 이값에 부정을 하면 위 조건에 부합하는 결과를 얻게 된다.
+            if (!isNumeric(n)) {
+                // 기호를 입력받은 경우
+                switch (n) {
+                    case "-":
+                        curSign = -1;
+                        break;
+                    case "+":
+                    case "*":
+                    case "/":
+                        break;
+                    case "=":
+                        // 계산하고 결과를 표시
+                        runCalc();
+                        break;
+                }
+                curStr = "";
+            } else {
+                // 문자열 수를 입력받은 경우
+                var oldStr = curStr;
+                curStr += n;
+                // -를 곱하는 경우 타입이 숫자로 변환된다. 다시 문자로 처리.
+                curStr = (curSign == -1) ? String(-curStr) : curStr;
+                curSign = null;
+                if (oldStr === "") {
+                    numbers.push(curStr);
+                } else {
+                    // 마지막 항목에 업데이트를 한다.
+                    numbers[numbers.length - 1] = curStr;
+                }
+            }
+        }
+
+        // 연산
+        var runCalc = function () {
+            var elem = document.getElementById('screen');
+            // 인덱스가 0일때는 한 개의 값이 모자란다.
+
+            result = 0;
+            for (var i = 0; i < numbers.length; i++) {
+                var x = numbers[i];
+                result += str2num(x);
+            }
+
+            elem.textContent = result;
+            // 먼저, 계산 결과를 화면에 표시하고
+            // 값을 초기화 합니다.
+            initCalc();
+        }
+
+        // 지원
+        var str2num = function (str) {
+            // 입력값에서 숫자를 추출한다.
+            return Number(str);
+        }
+
+        var isNumeric = function (num) {
+            return !isNaN(parseFloat(num)) && isFinite(num);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {box-sizing: border;}
+        button {font-size: 1.2em;}
+        #waitingList {border:1px solid blue; background-color:paleturquoise;}
+        #resultList  {border:1px solid green; background-color:palegreen;}
+        #calculator-body {background-color: dimgray; padding: 10px; display: inline-block;}
+        p {font-size: 2em; font-family: "DS-Digital"; text-align: right; width: 326px;
+        height: 40px; margin: 5px 0 0 0; padding: 5px;}
+        button {background-color: ivory; border: 1px solid black; padding: 15px; width: 63px; margin: 0;}
+        span {color: blue; border: 1px solid teal;}
+    </style>
+    <title>자작 계산기</title>
+</head>
+<body onload="initializer()">
+<div id="calculator-body">
+    <button type="button" data-val="1" onclick="usingButtonValue(this)">1</button>
+    <button type="button" data-val="2" onclick="usingButtonValue(this)">2</button>
+    <button type="button" data-val="3" onclick="usingButtonValue(this)">3</button>
+    <button type="button" data-val="4" onclick="usingButtonValue(this)">4</button>
+    <button type="button" data-val="5" onclick="usingButtonValue(this)">5</button>
+    <br>
+    <button type="button" data-val="6" onclick="usingButtonValue(this)">6</button>
+    <button type="button" data-val="7" onclick="usingButtonValue(this)">7</button>
+    <button type="button" data-val="8" onclick="usingButtonValue(this)">8</button>
+    <button type="button" data-val="9" onclick="usingButtonValue(this)">9</button>
+    <button type="button" data-val="0" onclick="usingButtonValue(this)">0</button>
+    <br>
+    <button type="button" data-val="+" onclick="usingButtonValue(this)">+</button>
+    <button type="button" data-val="-" onclick="usingButtonValue(this)">-</button>
+    <button type="button" data-val="*" onclick="usingButtonValue(this)">*</button>
+    <button type="button" data-val="/" onclick="usingButtonValue(this)">/</button>
+    <button type="button" data-val="." onclick="usingButtonValue(this)">.</button>
+    <br>
+    <button type="button" data-val="(" onclick="usingButtonValue(this)">(</button>
+    <button type="button" data-val=")" onclick="usingButtonValue(this)">)</button>
+    <button type="button" onclick="execution()">=</button>
+    <button type="button" onclick="initializer()">AC</button>
+    <button type="button" onclick="deleteOne()">C</button>
+    <p id="waitingList"></p>
+    <p id="resultList" style="color:green;"></p>
+</div>
+    <script src="decimal.js-master/decimal.js"></script>
+    <script>
+        // 버튼 누르기 -> 입력 인식 -> 값 받아오기 -> 값 행렬에 저장 + 값 화면에 표시 -> 계산 버튼 누르기 -> 계산 출력
+
+        // =====================================================
+        // 기본설정
+        // =====================================================
+
+        var waitArray = [];
+        var button = document.querySelectorAll('button')
+        var buttons = button.length;
+        var eachButton = buttons[i];
+        for (var i = 0; i < buttons; i++)
+        {
+            eachButton.addEventListener('click', usingButtonValue);
+        }
+
+        var finalFormula = "";
+        var currentFormula = "";
+
+        function initializer()
+        {
+            // 사이트를 실행할 & 초기화 버튼을 누를 때마다 초기화한다.
+            var emptyArray = [];
+            waitArray = emptyArray;
+            finalFormula = "";
+            document.getElementById('waitingList').innerHTML = "";
+            document.getElementById('resultList').innerHTML = "";
+            console.log(waitArray);
+        }
+
+        // =====================================================
+        // 입력
+        // =====================================================
+        
+        function usingButtonValue(buttonData)
+        {
+            // 이 함수는 단순히 수식에 붙이는 구조이므로
+            // 단순히 AC나 C, =와 합치지 말 것
+            var buttonValue = buttonData.getAttribute('data-val');
+            switch (buttonValue)
+            {
+                case ".":
+                {
+                    if (document.getElementById('waitingList').innerHTML.length == 0)
+                    {
+                        buttonValue = "0.";
+                    }
+                    else
+                    {
+                        buttonValue = ".";
+                    }
+                };
+                break;
+                default:
+                buttonValue;
+                break;
+            }
+            waitArray.push(buttonValue);
+            currentFormula = "";
+            for (i = 0; i < waitArray.length; i++)
+            {
+                currentFormula += '<span data-numidx="' + i + '">' + waitArray[i] + "</span>"
+                console.log(currentFormula);
+                // 'span id="check'
+            }
+            document.getElementById('waitingList').innerHTML = currentFormula;
+            console.log(waitArray);
+        }
+
+        // =====================================================
+        // 변경
+        // =====================================================
+        
+        function deleteOne() // 하나만 지우는 함수
+        {
+            waitArray.pop();
+            currentFormula = "";
+            for (i = 0; i < waitArray.length; i++)
+            {
+                currentFormula += '<span data-numidx="' + i + '">' + waitArray[i] + "</span>"
+                console.log(currentFormula);
+            }
+            // var xxx = document.getElementById('waitingList').innerHTML;
+            // var changed = xxx.slice(0, xxx.length - 1);
+            // console.log(changed);
+            // waitArray.pop();
+            // console.log(waitArray);
+            document.getElementById('waitingList').innerHTML = currentFormula;
+            console.log(waitArray);
+        }
+
+        // =====================================================
+        // 연산
+        // =====================================================
+
+        function execution()
+        {
+            for (i = 0; i < waitArray.length; i++)
+            {
+                var alpha = waitArray[i];
+                console.log(alpha);
+                finalFormula += (alpha == "number") ? alpha : String(alpha);   
+            }
+            console.log(finalFormula); // 확인
+            var result = (new Function('return ' + finalFormula))(); // 최종 공식을 계산(값을 도출하는 무명함수 사용)
+
+            document.getElementById('resultList').innerHTML = result;
+        }
+
+        // =====================================================
+        // 기타 지원 함수
+        // =====================================================
+        function isThisNum(num)
+        {
+            return !isNaN(parseFloat(num)) && isFinite(num);
+        };
+    </script>
+</body>
+</html>

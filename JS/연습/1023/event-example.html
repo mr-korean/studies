@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var randPrice = function ()
+            {
+
+            var color = ["red", "green", "blue", "yellow", "black", "purple", "brown"];
+            var arrLen = color.length;
+
+            function randomnum(a, b) { // 두 숫자 사이에서 랜덤 숫자 구하기
+                return Math.floor(Math.random() * (b - a + 1) + a);
+                // 숫자 하나만 사용할 경우,
+                // return Math.floor(Math.random() * a + 1)로 해결
+            }
+
+            while (arrLen >= 1) { // color에서 1개 추출
+                alert(color.splice(randomnum(0, arrLen - 1), 1));
+                arrLen = color.length;
+            }
+
+            // 함수 해설
+            // (1) 배열 color에 각 값을 대입한다.
+            // (2) 변수 arrLen에 배열 값의 갯수를 대입한다.
+            // (3) arrLen이 0이 될 때까지(즉 전부 추출할 때까지),
+            // 배열 color에서 randomnum번째의 1개만큼 삭제한다.
+            // (4) 단, randomnum은 0부터 arrLen-1 사이에서 랜덤으로 추출한다.
+
+            // 참가자가 1만명으로 늘어날 경우, 2개 과정으로 나눠야 한다.
+            // (1) 당첨 / 비당첨 여부를 가려야 한다. (1만명에서 정답자 랜덤 추출)
+            // (2) 당첨자의 상품을 결정한다. (당첨자 중 상품 랜덤 추출)
+        }
+        randPrice();
+
+        // ======================================================
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="whenReady()">
+    <h2>XMLHttpRequest 객체</h2>
+    <!-- <div> 섹션에는 서버의 정보가 표시된다. -->
+    <div id="ready"></div>
+    <div id="demo">
+    <!-- <button>을 클릭하면 함수를 호출한다.
+        이 함수는 웹 서버에 데이터를 요청하고, 그것을 표시한다. -->
+    <button type="button" onclick="loadDoc()">내용 변경</button>
+    </div>
+
+    <script>
+        function loadDoc()
+        {
+            var xhttp = new XMLHttpRequest(); // 백그라운드에서 서버와 데이터를 교환하는 함수이다.
+
+            // ※ !!! CAUTION !!!
+            // 작성 순서에 주의할 것!
+            // 이벤트 관리자를 먼저 지정하고, 그 다음에 open()과 send()를 실행해야 한다.
+            // 원래대로라면 먼저 파일을 불러오고 출력하는 게 맞지만, 동기성 특성상
+            // 서버 호출이 완료되지 않으면 계속 대기 상태에 들어가므로 이렇게 해야 한다(고 한다).
+            // (자세한 것은 검색할 것)
+
+            xhttp.onreadystatechange = function() // 요청 상태가 바뀌면 다음 함수를 바로 실행한다.
+            {
+                if (this.readyState = 4 && this.status == 200) // 응답이 준비(4)되고 상태가 OK(200)일 경우,
+                // (readyState와 status의 구분에 대해서는 https://www.w3schools.com/js/js_ajax_http.asp 를 참고.)
+                
+                {
+                document.getElementById("demo").innerHTML = this.responseText; // 응답 데이터를 문자열로 변환한다.
+                }
+            };
+            xhttp.open("GET", "ajax-info.txt", true);
+            xhttp.send();
+        }
+
+        function whenReady()
+        {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function()
+            {
+                if (this.readyState = 4 && this.status == 200)
+                {
+                document.getElementById("ready").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "ajax-onload.txt", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

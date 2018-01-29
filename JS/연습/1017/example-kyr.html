@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>사원의 이름 / 입사날짜 (년도월)을 검색하세요.</h1>
+    <p>사원 목록: jar, hrk, jjk, jsh, kks</p>
+    <p id="who"></p>
+    <form action="#" id="form">
+        <input type="text" name="year" placeholder="입사년도">
+        <input type="submit" value="검색" id="sub">
+    </form>
+    <script>
+
+        // 사원의 이름이나 입사날짜를 검색할 경우 값이 나온다. 
+        var members = {jar: "201702", hrk: "201708", jjk: "201406", jsh: "201605", kks: "201404" }
+        var name = ""; // ?
+
+        document.getElementById('sub').onclick = function() {
+            // sub를 클릭하면 뒤의 펑션을 실행
+            for(var p in members) { // 변수 members의 p(프로퍼티)를 전부 받아올 때까지
+            members[p] = Number(members[p]) // members[p]를 숫자로 바꿔서 대입?
+
+            if(members[p] >= document.getElementById('form').year.value || p == document.getElementById('form').year.value ) {
+                // members[p]가 form에 입력한 값보다 크거나 같을 경우
+            name += p + " " + members[p] + "<br>"; // name에 뒤의 내용을 출력
+            }
+        }
+        
+        document.getElementById("who").innerHTML = name; // name에 대입된 내용을 who에 출력
+        return false; // 아니면 말고
+        }
+        
+
+
+        /* 사원이 2016년 1월 이후에 입사했을 경우 사원의 입사년월 혹은 이름을 입력하면 값이 나온다.  (아직안됨)
+        var members = {jar: "201702", hrk: "201708", jjk: "201406", jsh: "201605", kks: "201404" }
+        var name = "";
+
+        document.getElementById('sub').onclick = function() {
+            for(var p in members) {
+            members[p] = Number(members[p])
+
+            if(201601 >= document.getElementById('form').year.value) {
+            name += p + " " + members[p] + "<br>";
+            } else if (p == document.getElementById('form').year.value && members[p] >= 201601 ) {
+                name += p + " " + members[p] + "<br>";
+            }
+        }
+        
+        document.getElementById("who").innerHTML = name;
+        return false;
+        }
+        */
+        
+    </script>
+</body>
+</html>

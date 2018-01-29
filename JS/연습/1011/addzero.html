@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>제목</h1>
+<h2>부제목</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+    <h2>EZ2AC OST List</h2>
+    <div id="list"></div>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+    var addZero = function(num, digit)
+    {
+        var numString = String(num) // String(#)은 #의 데이터를 문자열로 변환시킨다.
+    while(numString.length < digit) // .length는 문자열의 문자 수를 나타낸다.
+    {numString = '0' + numString} // 두 자리 수부터는 0이 붙을 필요가 없으므로 '<='가 아니라 '<'가 되어야 한다.
+    return numString
+    }
+
+    console.log(addZero(1,2))
+
+    var songs =
+    ['G.O.A.', 'Legend of Moonlight', 'Prince of Darkness', 'You Should Get Over Me', "Don't Say Anything", 'Just For Today', 'Look Out', 'STAY',
+    'Baby Dance', 'Black Market']
+    for(var i = 0; i < songs.length; i++)
+    {var paragraph = document.createElement('p')
+    paragraph.textContent = addZero(i + 1, 2) + '. ' + songs[i]
+    document.getElementById('list').appendChild(paragraph)}
+</script>
+</body>
+</html>

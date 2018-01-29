@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>학점</title>
+</head>
+<body>
+
+<canvas id="grade" width="500" height="500" style="border:3px solid black;">이 브라우저에선 캔버스가 지원되지 않습니다.</canvas>
+
+<script>
+    var c = document.getElementById("grade");
+    var failed = c.getContext("2d");
+    failed.moveTo(0,0);
+    failed.lineTo(500,0);
+    failed.lineTo(500,100);
+    failed.lineTo(100,100);
+    failed.lineTo(100,200);
+    failed.lineTo(500,200);
+    failed.lineTo(500,300);
+    failed.lineTo(100,300);
+    failed.lineTo(100,500);
+    failed.lineTo(0,500);
+    failed.lineTo(0,0);
+    failed.stroke();
+</script>
+</body>
+</html>

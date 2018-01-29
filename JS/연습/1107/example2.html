@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>숫자입력 유효성 검사</title>
+</head>
+<body>
+    <input id="numb">
+    <!-- input 속성에 require를 넣으면 빈 상태로 전송되지 않는다. -->
+    <button type="button" onclick="myFunction()">제출</button>
+    
+    <p id="demo"></p>
+    <script>
+        function myFunction()
+        {
+            var x, text;
+            
+            // id가 "numb"인 칸의 텍스트 받아오기
+            // id를 찾는 것까진 똑같지만, 일반적인 HTML 문서가 아니므로
+            // value를 찾아야 한다.
+            x = document.getElementById('numb').value;
+
+            // x가 숫자가 아니거나, 1보다 작거나, 10보다 클 경우
+            if (isNaN(x) || x < 1 || x > 10)
+            {text = "입력한 내용이 유효하지 않습니다"}
+            else
+            {text = "입력이 완료되었습니다."}
+            document.getElementById('demo').innerHTML = text;
+        }
+    </script>
+</body>
+</html>

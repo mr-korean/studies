@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 1600px;
+}
+/*머리  */
+header {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    width: 1600px;
+    height: 100px;
+}
+/*로고  */
+.mango {
+    width: 300px;margin:auto;#
+}
+/*링크  */
+a {
+    text-decoration: none;
+    color: black;
+}
+/*전체포스터사진  */
+div {  
+    float: left;
+    margin: 0;
+    text-align: center;
+ } 
+/* 포스터배치 */
+.mar {float:left; 
+    margin-left: 100px;
+}
+/*백그라운드배치  */
+.bac {
+    background-image: url("../img/bac2.png");
+    box-shadow: 10px rgba(0, 0, 0, 0.5);
+    width: 1600px;
+    height: 600px;
+    margin-top: 3%;
+    background-repeat: no-repeat;
+}
+
+/*각각포스터배치  */
+.c1,
+.c2,
+.c3,
+.c4 {
+    margin-left: 35px;
+}
+/*포스터크기설정  */
+.po {transition:width 0.5s, height 0.5s;
+    width: 300px;
+    height: 400px;
+}
+/*마우스올렸을때 설정  */
+.po:hover{margin:0;width:350px; height:500px;}
+/*바닥 */
+address {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 1600px;
+    height: 30px;
+    margin-top: 663.6px;
+}
+/*media queries  */
+@media screen and (max-width:500px) {
+  html{margin:0;}
+    body {
+        width:100%;
+        height: 800px;
+        margin:0;
+    }
+    header {
+        width: 100%;height:100px;
+    }
+    header .mango {width:50%;
+        margin:auto;
+       
+    }
+    .bac {
+        background-image: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        float: left;
+        height: 400px;
+    }
+    .mar {
+        
+        margin: 0;
+        width: 100%;
+        height: 690px;
+    }
+   
+    div {
+      
+        margin: 0;
+        padding: 0;
+        ;
+        width: 50%;
+        height: 345px;
+    }
+    .ho1 {
+        
+        width: 50%;
+        height: 345px;
+    }
+    .po {
+     
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 345px;
+    }
+    .po:hover{display:none;}
+    .c1,
+    .c2,
+    .c3,
+    .c4 {
+       
+        opacity: 1;
+        margin: 0;
+    }
+    address {
+        width: 100%;
+        margin-top: 690px;
+    }
+}

@@ -1,0 +1,284 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+/* 같은 요소에 적용되는 같은 속성이 있을 경우, 나중에 쓴 것(즉 아래에 있는 것)이 요소와 가장 가까우므로 먼저 적용된다.
+인라인에 작성한 것이 있다면 CSS보다 '더 가까우므로' 그것이 먼저 적용된다. */
+/* div div div {뷁}이든 div div {섊}이든 결론적으로는 모두 div이므로 이 경우는 div {속성}만 써주면 된다. */
+
+.longback {
+    background-color: #edeee6;
+    position: absolute;
+    z-index: -300;
+    width: 100%;
+    height: 247px;
+    top: 106px;
+}
+
+.main {
+    width: 938px;
+    height: 943px;
+    padding: 0px;
+    margin: auto;
+}
+
+/* =============== 문서 상단 영역 ============== */
+header {
+    position: relative;
+    display: flex;
+    margin: 0px;
+    height: 106px;
+    width: 100%;
+}
+
+.logo {
+    align-self: flex-start;
+    margin-top: 37px;
+}
+
+/* 로그인 박스 */
+.loginbox {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    list-style-type: none;
+}
+
+.loginbox li {
+    float: left;
+}
+
+.loginbox li a {
+    display: block;
+    padding: 5px;
+}
+
+.loginbox li>img {
+    margin: 5px;
+}
+
+/* 화면 상단, 내비게이션 바 */
+.topmenu {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 800px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: bold;
+}
+
+.topmenu li {
+    float: left;
+    list-style-type: none;
+}
+
+.topmenu a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+}
+
+/* 화면 중간, 기능 설명 장면 */
+.function {
+    position: relative;
+    display: flex;
+    width: 939px;
+    height: 203px;
+    font-size: 0.8em;
+}
+
+.func1, .func2, .func3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width:313px;
+    height:203px;
+}
+
+.func1 p, .func3 p {
+    margin : 5px 0px;
+    text-align: center;
+}
+
+.func2 p {
+    margin: 5px 0px;
+}
+
+.func1-title, .func2-title, .func3-title {
+    color: white;
+    font-size: 1.2em;
+}
+
+/* 화면 중간 하단, Job Openings ~ 광고 */
+.service {
+    position: relative;
+    width: 939px;
+    height: 290px;
+}
+/* 화면 중간 좌하단, Job Openings */
+.jobfinder {
+    position: relative;
+    background-color: #6b46a9;
+    color: white;
+    width: 626px;
+    height: 290px;
+    display: flex;
+    justify-content: center;
+}
+.jobfinder-title {
+    margin-top: 32px;
+    margin-left: 26px;
+}
+
+.jobfinder-menu {
+    margin-top: 10px;
+    margin-left: 26px;
+    width: 566px;
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    color: #c7b2e9;
+    border-bottom: 1px solid #8f72c0;
+    display: inline-block;
+}
+
+.jobfinder-menu a {
+    padding: 2px;
+    color: white;
+    text-decoration: none;
+}
+
+.jobfinder-model {
+    margin-left: 28px;
+    margin-top: 10px;
+    width: 144px;
+    height: 161px;
+}
+
+/* 화면 중간 좌하단, 직장목록과 이동버튼 */
+.joblist {
+    float: left;
+    width: 407px;
+    height: 148px;
+}
+
+.joblist-table {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 397px;
+    height: 114px;
+    color: #c7b2e9;
+    border-collapse: separate;
+    font-size: 0.8em;
+    font-family: gulim;
+}
+
+.joblist-dot {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.joblist-button {
+    margin-top: 5px;
+    margin-left: 122px;
+    display: flex;
+    color: #c7b2e9;
+}
+
+.joblist-button li {
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+    margin: 0px 2px;
+}
+
+.joblist-button li a {
+    text-decoration: none;
+    color: #c7b2e9;
+}
+/* 화면 중간 우하단, 광고1 & 광고2 */
+
+.ad-1 {
+    display: flex;
+    align-content:center;
+    width: 313px;
+    height: 157px;
+    font-size: 0.8em;
+}
+
+.ad-1 img {
+    margin-left: 39px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    width: 145px;
+    height: 145px;
+}
+
+.ad-2 {
+    position: relative;
+    width: 313px;
+    height: 133px;
+}
+
+/* 화면 최하단, 연락처 */
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 97px;
+    font-size: 0.85em;
+    color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addressbox {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.addressbox li {
+    list-style-type: none;
+    display: inline-block;
+
+}
+
+.address-bar::before {
+    content: "|\00a0";
+    color: silver;
+}
+
+/* ===================== 클리어픽스 시스템 ===================== */
+
+.left {
+    float: left
+}
+
+.left::after, .right::after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.right {
+    float: right
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both
+}

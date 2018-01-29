@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p id="result"></p>
+<form action="#" id="form">
+    <input type="text" name="search" placeholder="입사년도를 입력하세요.">
+    <input type="submit" onclick="searchMember()" value="검색" id="sub">
+</form>
+
+    <script>
+        // 1. 사원 목록 작성 (O)
+        // 2. 2016년 이후 입사한 사원목록
+        // 3. 검색결과(2항)을 먼저 보여주고, 나머지(1항)를 보여준다.
+        // ====================================
+        // A. 사원목록 저장
+        // B. 사원목록 출력할 수 있어야 함
+        // C. 출력 조건을 입력할 공간이 있어야 함
+        // D. (옵션) 입사년도를 저장
+        // E. (옵션) 입력한 입사년도를 D의 변수에 대입
+
+        // ※ 변수명에 데이터 값을 쓰지 말 것
+
+        var memberList = 
+        [
+            'jar-2017-02',
+            'hrk-2017-08',
+            'jjk-2014-06',
+            'jsh-2016-05',
+            'kks-2014-04'
+        ]
+        var name = "";
+        // document.getElementById('result').innerHTML = memberList;
+        // var memberYear = Number(memberList[p].substring(5, 8))
+        function searchMember()
+        {
+            for (i = 0; i <= 5; i++) {
+                if (Number(memberList[i].substring(5, 8)) >= document.getElementById('form').search.value) {
+                    name += memberList[i]
+                }
+            }
+            document.getElementById('result').innerHTML = name
+        }
+            // {
+            // for (var p in memberList)
+            //     {
+            //         if (memberYear >=
+            //             document.getElementById('form').search.value)
+            //         {
+            //             name += p + " " + memberList[p] + "<br>";
+            //         }
+            //     }
+            // document.getElementById('result').innerHTML = name;
+            // }
+    </script>
+</body>
+</html>

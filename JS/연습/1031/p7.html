@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체를 만드는 두 가지 방식
+        var codyA = new Object();
+        codyA.living = true;
+        codyA.age = 33;
+        codyA.gender = 'male';
+        codyA.getGender = function()
+        {
+            return codyA.gender
+        }
+
+        // 사용자 생성자 함수
+        var Person = function (living, age, gender)
+        {
+            this.living = living;
+            this.age = age;
+            this.gender = gender;
+            this.getGender = function ()
+            {
+                return this.gender;
+            }
+        }
+
+        var codyB = new Person(true, 33, 'male');
+
+        console.log(codyA);
+        console.log(codyB);
+        // 결과는 같지만, 어떤 과정을 통해 만들었는지가 다르다. (위는 codyA라는 객체, 아래는 Person이라는 생성자)
+    </script>
+</body>
+</html>

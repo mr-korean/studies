@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../_common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>제목</h1>
+<h2>부제목</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script>
+    var number = Math.floor(Math.random() * 37);
+    var answer = parseInt(window.prompt('막장카지노입니다!\n0부터 36까지의 숫자 중 하나를 선택하세요!'))
+    var message;
+    if(answer === number)
+    {message = '맞추셨습니다!'}
+    else if(answer < number)
+    {message = '땡! UP입니다!'}
+    else if(answer > '36')
+    {message = '땡! 땡!! 때애애애애앵!!!\n0부터 36까지의 숫자 중 하나를 입력하라니까요!'}
+    else if(answer > number)
+    {message = '땡! DOWN입니다!'}
+    else { message = '즐겨주셔서 감사합니다! 안녕히 가세요!'}
+    window.alert(message)
+    console.log(number)
+</script>
+</body>
+</html>

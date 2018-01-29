@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>M Network company</title>
+    <style>
+        /* 공통 */
+        body {margin:0}
+        body::before {content:""; display:block; background:#948eca; height:6px; width:100%}
+        img {border:0}
+        ul {list-style-type:none; padding:0; margin:0}
+        a {text-decoration:none}
+        nav li, footer li {display:inline-block}
+        h1 {margin:0; font-size:0}
+
+        header {width:1085px; height:70px}    
+        header, body>section {margin:0 auto}
+        header>p {width:211px; height:27px; margin-top:18px}
+        nav {width:820px; padding:30px 0 16px; margin-left:54px}
+            
+        /* Float */
+        .fl {float:left}
+        .fl::after {content:""; display:table; clear:both}
+        
+        /* 메뉴 */
+        nav>ul:nth-child(1)>li {height:17px; border-right:1px solid #d4dde1}
+        nav>ul:nth-child(1)>li:nth-last-child(1) {border-right:0}
+        nav>ul:nth-child(1)>li:nth-child(1) a {margin-right:24px; width:71px; height:18px}
+        nav>ul:nth-child(1)>li:nth-child(2) a {margin:0 28px 0 27px; width:60px; height:18px}
+        nav>ul:nth-child(1)>li:nth-child(3) a {margin:0 28px 0 23px; width:90px; height:18px}
+        nav>ul:nth-child(1)>li:nth-child(4) a {margin:0 29px 0 23px; width:77px; height:18px}
+        nav>ul:nth-child(1)>li:nth-child(5) a {margin-left:23px; width:70px; height:18px}
+    
+        /* 로그인 메뉴*/
+        nav>ul:nth-child(2) {margin:-5px 0 0 53px}
+        nav>ul:nth-child(2)>li a {margin-right:19px}
+        nav>ul:nth-child(2)>li:nth-child(1) a {width:27px; height:12px}
+        nav>ul:nth-child(2)>li:nth-child(2) a {width:35px; height:12px}
+        nav>ul:nth-child(2)>li:nth-child(3) a {width:40px; height:12px}
+        nav>ul:nth-child(2)>li:nth-child(4) a {margin-right:0; width:31px; height:12px}
+    
+        /* 섹션 */
+        .container_t {width:100%; height:586px; padding:30px 0 28px; background: #948eca url("img/bg.jpg") no-repeat center bottom}
+        .container_t>div, .container_b, footer address, footer p {width:1085px; margin:0 auto}
+        .container_t>div>p {width:521px; height:36px; margin-top:340px}
+        .container_t>div>p img {margin-right:5px}
+        .box {width:564px}
+        .box img, h1>img {vertical-align:middle}
+        .box section:nth-child(4) {margin-left:188px}
+        .box section:nth-child(6) {position:relative}
+        .box section:nth-child(6) img {z-index:1}
+        .box section:nth-child(7) {margin-left:-14px}
+
+        .container_b {margin:50px auto 46px; height:135px}
+        .container_b ul {margin-top:20px}
+        .container_b li img {vertical-align:-.2em; margin-left:8px}
+        .container_b li {margin-left:-1px}
+
+        .container_b>section:nth-child(1) {width:335px; margin-right:65px; background: white url(img/monitor.jpg) no-repeat 251px 45px}
+        .container_b section:nth-child(1) li::before {content:"-"; font-size:.7em; vertical-align:.2em; margin-right:.6em}
+        .container_b li {padding:.1em 0}
+        .container_b section:nth-child(1) li a {color:#5d5d5d; letter-spacing:-.01em; font-size:.75em; font-weight:bold}
+        
+        .container_b>section:nth-child(2) {width:410px; margin-right:48px}
+        .container_b>section:nth-child(2) div {width:65px; height:9px; padding-top:3px; margin-left:169px}
+        .container_b>section:nth-child(2) ul {margin-top:54px}
+        .container_b section:nth-child(2) li::before {content:"-"; margin-right:.6em}
+        .container_b section:nth-child(2) li {padding:.25em 0}
+        .container_b section:nth-child(2) li a {color:#587272; letter-spacing:-.01em; font-size:.75em; font-family:dotum, sans-serif}
+                
+        .container_b>section:nth-child(3) {width:227px; height:158px; margin-top:-23px}
+
+        /* 하단 */
+        footer {height:102px; background:#f0f0f0}
+        footer address {display:block; padding:28px 0 0 1px; color:#657382; letter-spacing:-.055em}
+        footer address, footer p {font:bold .75em 'malgun gothic', Arial, Helvetica, sans-serif}
+        footer p {margin-top:3px; color:#948eca}
+        footer li:nth-child(2n+0)::before {content:""; display:inline-block; width:1px; height:11px; vertical-align:middle; border-right:1px solid #cdd1d4; margin:10px}
+        footer li:nth-child(1) {padding-left:0}
+        footer li:nth-last-child(1) {border:0}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <p class="fl"><a href="#" target="_self"><img src="img/logo.jpg" style="width:211px; height:27px" alt="M Network company"></a></p>
+        <nav class="fl">
+            <ul class="fl">
+                <li><a href="#" target="_self"><img src="img/menu01.jpg" style="width:71px; height:18px" alt="Company"></a></li><li><a href="#" target="_self"><img src="img/menu02.jpg" style="width:60px; height:18px" alt="Business"></a></li><li><a href="#" target="_self"><img src="img/menu03.jpg" style="width:90px; height:18px" alt="Recruitment"></a></li><li><a href="#" target="_self"><img src="img/menu04.jpg" style="width:77px; height:18px" alt="Promotion"></a></li><li><a href="#" target="_self"><img src="img/menu05.jpg" style="width:70px; height:18px" alt="Customer"></a></li>
+            </ul>
+            <ul class="fl"><li><a href="#" target="_self"><img src="img/login01.jpg" style="width:27px; height:12px" alt="Login"></a></li><li><a href="#" target="_self"><img src="img/login02.jpg" style="width:35px; height:12px" alt="Join us"></a></li><li><a href="#" target="_self"><img src="img/login03.jpg" style="width:40px; height:12px" alt="sitemap"></a></li><li><a href="#" target="_self"><img src="img/login04.jpg" style="width:31px; height:12px" alt="Home"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <section class="container_t">
+            <div>
+            <p class="fl"><a href="#" target="_self"><img src="img/button1.png" style="width:35px; height:36px" alt="Pause"></a><a href="#" target="_self"><img src="img/button2.png" style="width:35px; height:36px" alt="Play"></a><a href="#" target="_self"><img src="img/button3.png" style="width:35px; height:36px" alt="Stop"></a></p>
+            <div class="fl box">
+                <section class="fl"><img src="img/introduction.jpg" style="width:188px; height:198px" alt="Corporate introduction"></section>
+                <section class="fl"><img src="img/investment.jpg" style="width:188px; height:198px" alt="Information investment"></section>
+                <section class="fl"><img src="img/channel.jpg" style="width:188px; height:198px" alt="Promotional channel"></section>
+                <section class="fl"><img src="img/management.jpg" style="width:188px; height:198px" alt="Corporate sustainability management"></section>
+                <section class="fl"><img src="img/recruitment.jpg" style="width:188px; height:198px" alt="Recruitment"></section>
+                <section class="fl"><img src="img/oliveg.png" style="width:202px; height:189px" alt="man"></section>
+                <section class="fl"><img src="img/kosdaq.jpg" style="width:188px; height:189px" alt="Stock information"></section>
+                <section class="fl"><img src="img/digitalbook.jpg" style="width:188px; height:190px" alt="Digital Book"></section>
+            </div>
+            </div>
+        </section>
+
+        <section class="container_b">
+
+            <section class="fl">
+            <h1><img src="img/h101.jpg" style="width:335px; height:20px" alt="Public information data"></h1>
+            <ul class="fl">
+                <li><a href="#" target="_self">Promction Movie</a><a href="#" target="_self"><a href="#" target="_self"><img src="img/view_btn.jpg" style="width:77px; height:17px"  alt="view"></a></li>
+                <li><a href="#" target="_self">Download</a></li>
+                <li><a href="#" target="_self">2015year Brochure</a></li>
+                <li><a href="#" target="_self">Download</a></li>
+            </ul>
+            </section>
+
+            <section class="fl">
+            <h1 class="fl"><img src="img/h102.jpg" style="width:176px; height:38px" alt="Network Notice"></h1>
+            <div class="fl"><a href="#" target="_self"><img src="img/moreview_btn.jpg" style="width:65px; height:9px" alt="more"></a></div>
+            <ul>
+                <li><a href="#" target="_self">Quaeque phaedrum posidonium, no sea viderer oporteat...</a></li>
+                <li><a href="#" target="_self">Wlectram eum. Usu et case legere intellegebat, assum...</a></li>
+                <li><a href="#" target="_self">Nam ad feugiat deitis habemus, In amet miim affert vel...</a></li>
+            </ul>
+            </section>
+
+            <section class="fl">
+                <a href="#" target="_self"><img src="img/affiliates.jpg" style="width:227px; height:158px" alt="Affiliates"></a>
+            </section>
+
+        </section>
+    </section>
+
+    <footer>
+        <address>
+        <ul>
+            <li>000 N.Spring Street, Rm 000, Los Angeles, CA 000000</li>
+            <li>TEL : 000-0000-0000</li>
+            <li>FAX : 000-0000-0000</li>
+            <li>E-mail company@company.com</li>
+        </ul>
+        </address>
+        <p>Copyright Network company. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

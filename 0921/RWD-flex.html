@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RWD-flex</title>
+    <style>
+        /* common */
+        * {box-sizing: border-box;}
+        body {margin: 0;}
+        nav ul, .outline ul {
+            /* 목록을 링크로 만들기 */
+            margin: 0; padding: 0; list-style-type: none;
+        }
+        /* layout */
+        /* 레이아웃 계획 : 1) 총 길이 900 2) 각 해상도는 900이상(마진 커짐), 700-900(화면 축소), 700이하(미디어쿼리) */
+        .container {max-width: 900px; margin-left: auto; margin-right: auto;}
+
+        .contents, header, header nav ul, header .global ul {display: flex;}
+
+        .contents .outline {flex: 2;}
+        .contents section {flex: 7; background-color: palevioletred;}
+        /* header */
+        header .toparea {
+            margin-left: auto;
+            /* flex가 적용된 header 내에서 margin-left로 박스를 오른쪽으로 이동 = 왼쪽 여백을 자동으로 확보 */
+            background-color: pink;
+        }
+
+        header .global ul {justify-content: flex-end;}
+
+        /* contents */
+        
+        /* footer */
+        footer {
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* temp */
+        header nav li {
+            border: 1px solid black;
+            background-color: lavender;
+        }
+        .outline ul li {
+            background-color: khaki;
+        }
+
+        /* 반응형 웹 만들기 */
+        @media only screen and (max-width: 700px) {
+            body {background-color: palegreen;}
+            /* .contents 영역 가로로 돌리기 */
+            .contents {flex-direction: column;}
+            .outline ul {display: flex; justify-content: space-around;}
+            .outline ul li {flex: 1; text-align: center; padding: 20px;}
+            .logo {margin: 20px auto 20px auto;}
+            .hiddenmenu {visibility:visible;}
+            .toparea {display: none;}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" src="" alt="logo" style="background-color: yellow; padding: 10px;">
+            <div class="hiddenmenu" style="position: absolute; right: 10px; background-color: black; color: white; visibility:hidden;">SHIT</div>
+            <div class="toparea">
+                <nav class="global">
+                    <ul>
+                        <li>Login</li>
+                        <li>Help</li>
+                    </ul>
+                </nav>
+                <nav class="topnav">
+                    <ul>
+                        <li>Menu1</li>
+                        <li>Menu2</li>
+                        <li>Menu3</li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="contents">
+            <div class="outline">
+                <ul>
+                    <li>Outline1-1</li>
+                    <li>Outline1-2</li>
+                </ul>
+            </div>
+            <section>
+                <h1>Title1</h1>
+                <p>눈에 사랑의 그들의 얼음 만천하의 사막이다. 인생의 우리의 대한 끓는 가슴에 얼마나 열매를 기쁘며, 타오르고 황금시대다. 많이 싶이 동력은 위하여서. 피가 것은 품었기 주며, 할지라도 내는
+                    천하를 사막이다. 있는 위하여, 얼음과 일월과 석가는 위하여 피다. 청춘 같이, 없으면 뜨거운지라, 있는가? 찬미를 동력은 구하기 미인을 커다란 천하를 것이다.</p>
+                <section>
+                    <h1>Title1-1</h1>
+                    <p>눈에 사랑의 그들의 얼음 만천하의 사막이다. 인생의 우리의 대한 끓는 가슴에 얼마나 열매를 기쁘며, 타오르고 황금시대다. 많이 싶이 동력은 위하여서. 피가 것은 품었기 주며, 할지라도
+                        내는 천하를 사막이다. 있는 위하여, 얼음과 일월과 석가는 위하여 피다. 청춘 같이, 없으면 뜨거운지라, 있는가? 찬미를 동력은 구하기 미인을 커다란 천하를 것이다.</p>
+                </section>
+                <section>
+                    <h1>Title1-2</h1>
+                    <p>눈에 사랑의 그들의 얼음 만천하의 사막이다. 인생의 우리의 대한 끓는 가슴에 얼마나 열매를 기쁘며, 타오르고 황금시대다. 많이 싶이 동력은 위하여서. 피가 것은 품었기 주며, 할지라도
+                        내는 천하를 사막이다. 있는 위하여, 얼음과 일월과 석가는 위하여 피다. 청춘 같이, 없으면 뜨거운지라, 있는가? 찬미를 동력은 구하기 미인을 커다란 천하를 것이다.</p>
+                </section>
+            </section>
+        </div>
+        <footer><address style="text-align: center;">Contact: 555-555-5555</address></footer>
+    </div>
+</body>
+
+</html>

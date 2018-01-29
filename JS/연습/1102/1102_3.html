@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 만들기</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+    <style>
+        p,
+        button {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.5em;
+        }
+
+        button {
+            width: 2em;
+        }
+
+        #screen {
+            margin: 0;
+            height: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="screen"></p>
+    <div>
+        <button type="button" data-val="del" class="btn" disabled>D</button>
+        <button type="button" data-val="(" class="btn" disabled>(</button>
+        <button type="button" data-val=")" class="btn" disabled>)</button>
+        <button type="button" data-val="/" class="btn">/</button>
+        <br>
+        <button type="button" data-val="7" class="btn">7</button>
+        <button type="button" data-val="8" class="btn">8</button>
+        <button type="button" data-val="9" class="btn">9</button>
+        <button type="button" data-val="*" class="btn">*</button>
+        <br>
+        <button type="button" data-val="4" class="btn">4</button>
+        <button type="button" data-val="5" class="btn">5</button>
+        <button type="button" data-val="6" class="btn">6</button>
+        <button type="button" data-val="+" class="btn">+</button>
+        <br>
+        <button type="button" data-val="1" class="btn">1</button>
+        <button type="button" data-val="2" class="btn">2</button>
+        <button type="button" data-val="3" class="btn">3</button>
+        <button type="button" data-val="-" class="btn">-</button>
+        <br>
+        <button type="button" data-val="reset" class="btn" disabled>C</button>
+        <button type="button" data-val="0" class="btn">0</button>
+        <button type="button" data-val="00" class="btn" disabled>00</button>
+        <button type="button" data-val="=" class="btn">=</button>
+    </div>
+    <script>
+        // 환경설정 ====================================================
+        var numbers, result, curStr, curSign;
+
+        // 모든 요소(이미지 까지)가 다운로드 되면 실행된다.
+        window.onload = function () {
+            initCalc();
+
+            var btns = document.querySelectorAll('.btn');
+            var len = btns.length;
+            for (var i = 0; i < len; i++) {
+                var btn = btns[i];
+                btn.addEventListener('click', getValue);
+            }
+        };
+
+        var initCalc = function () {
+            numbers = [];
+            curStr = "";
+            curSign = "";
+        }
+
+
+        // 입력 ====================================================
+        var getValue = function () {
+            var n = this.getAttribute('data-val');
+            console.log(n);
+            if (!isNumeric(n)) {
+                // 기호를 입력받은 경우
+                switch (n) {
+                    case "-":
+                    case "+":
+                    case "*":
+                    case "/":
+                        curSign = n;
+                        break;
+                    case "=":
+                        runCalc();
+                        break;
+                }
+                curStr = "";
+            } else {
+                // 문자열 수를 입력받은 경우
+                var oldStr = curStr;
+                curStr += n;
+                curStr = curSign + curStr;
+                curSign = "";
+                if (oldStr === "") {
+                    numbers.push(curStr);
+                } else {
+                    numbers[numbers.length - 1] = curStr;
+                }
+            }
+        }
+
+        // 연산 ====================================================
+        var runCalc = function () {
+            // 쌓아 놓은 수식을 연결한다.
+            var calcText = "";
+            for (var i = 0; i < numbers.length; i++) {
+                calcText += numbers[i];
+            }
+
+            // by moe http://morden.dk/2010/a-faster-alternative-to-eval/
+            // 만약 calcText가 '1+2*3'이라면 function (){ return 1+2+3 }이라는 객체를 만든다.
+            // var myFn  = new Function('return ' + localSum);
+            // result = myFn();
+            //
+            var result = (new Function('return ' + calcText))();
+
+            // 계산값을 화면에 뿌리고
+            evalExp(result);
+            // 초기화
+            initCalc();
+            // 다음 연산을 위해 결과를 0번 인덱스에 넣어 준다.
+            numbers.push(result);
+        }
+
+        // 출력 ====================================================
+        var evalExp = function (num) {
+            document.getElementById('screen').textContent = num;
+        }
+
+        // 지원 ====================================================
+        var str2num = function (str) {
+            return Number(str);
+        }
+
+        var isNumeric = function (num) {
+            return !isNaN(parseFloat(num)) && isFinite(num);
+        };
+    </script>
+</body>
+
+</html>

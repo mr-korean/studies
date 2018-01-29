@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체 만들기</title>
+</head>
+<body>
+    <script>
+        // 생성자의 첫 글자는 대문자(선택)
+        // this는 호출한 객체를 의미한다.
+        var Person = function (living, age, gender)
+        {
+            this.living = living;
+            this.age = age;
+            this.gender = gender; // 정적 데이터
+            this.getGender = function () // 동적 데이터
+            {
+                return this.gender;
+            }
+        }
+        // 생성자를 통해 객체를 더욱 쉽게 만들 수 있다(괄호 안에 순서에 맞춰 넣기만 하면 됨).
+
+        var cody = new Person(true, 33, 'male');
+        var reaper = new Person(false, 36, 'male');
+        console.log(cody.age);
+        console.log(reaper.living);
+        // 사실상 p2와 결과가 같다.
+    </script>
+</body>
+</html>
